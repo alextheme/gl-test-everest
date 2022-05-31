@@ -4,4 +4,4 @@
 
 preview page
 
-![Image alt](https://github.com/alextheme/gl-test-everest/blob/master/preview.png?raw=true "example page")
+![Image alt](https://github.com/alextheme/gl-test-everest/blob/main/preview.png?raw=true "example page")
