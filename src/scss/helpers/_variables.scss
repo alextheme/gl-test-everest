@@ -1,16 +1,29 @@
 //---------------------------------------------fonts
 $font_path: "../fonts/";
-$font_1: 'RobotoCondensed', sans-serif;
-$font_size_base: 1.6rem;
+$font_1: 'Apercu_r', sans-serif;
+$font_size_base: 1.2rem;
 //---------------------------------------------fonts###
 
 //---------------------------------------------colors
 $white: #fff;
 $black: #000;
 
-$color_text_base: $black;
-$color_link_base:#4aa3df;
+$color_text_base: #19202C;
+$color_link_base: #19202C;
 $body_bg: $white;
+$item_grid_bg: #f4f4f4;
+$color_accent: #bd243a;
+
+$t_clr1: #00568a;
+$t_clr2: #3a2796;
+$t_clr3: #5496e3;
+$t_clr4: #af2323;
+$t_clr5: #f98c30;
+$t_clr6: #4c7d14;
+$t_clr7: #c646a3;
+$t_clr9: #5496e3;
+$t_clr10: #f98c30;
+
 //---------------------------------------------colors###
 
 //---------------------------------------------z-index
@@ -22,7 +35,7 @@ $z-index: (
 //---------------------------------------------z-index###
 
 //---------------------------------------------layout
-$page_width: 96rem;
+$page_width: 115.5rem;
 
 //---------------------------------------------layout###
 

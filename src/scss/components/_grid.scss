@@ -1,0 +1,85 @@
+.grid_list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 24rem;
+
+  $m_indent: calc(var(--gl-indent) - (2 * var(--gl-indent)));
+  margin: 0 -1.6rem;
+}
+
+.item_grid {
+  padding: 0 1rem 2rem;
+  // overflow: hidden;
+}
+
+.item_grid_wrap {
+  width: 100%;
+  height: 100%;
+  padding: 1.4rem 1.2rem;
+  background-color: white;
+}
+
+.item_grid_in {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+  
+  overflow: hidden;
+}
+
+.item_grid--position_1_mod {
+  grid-column-start: 1;
+  grid-column-end: span 3;
+  grid-row-start: 1;
+  grid-row-end: span 2;
+}
+
+.item_grid--position_6_mod {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  grid-row-start: 3;
+  grid-row-end: span 1;
+}
+
+.item_grid--position_7_mod {
+  grid-column-start: 3;
+  grid-column-end: span 1;
+  grid-row-start: 3;
+  grid-row-end: span 2;
+}
+
+.item_grid--position_10_mod {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  grid-row-start: 4;
+  grid-row-end: span 1;
+}
+
+.item_grid--position_13_mod {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  grid-row-start: 5;
+  grid-row-end: span 1;
+}
+
+.item_grid--position_14_mod {
+  grid-column-start: 3;
+  grid-column-end: span 1;
+  grid-row-start: 5;
+  grid-row-end: span 2;
+}
+
+.item_grid--position_15_mod {
+  grid-column-start: 4;
+  grid-column-end: span 2;
+  grid-row-start: 5;
+  grid-row-end: span 2;
+}
+
+.item_grid--position_16_mod {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  grid-row-start: 6;
+  grid-row-end: span 1;
+}

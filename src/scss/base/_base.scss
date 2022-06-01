@@ -7,14 +7,14 @@
 :root {
 	--full-screen: calc(var(--vh, 1vh) * 100);
 
-	--height-header: 10rem;
-	--height-footer: 10rem;
-	--gl-indent: 3rem;
+	--height-header: 9rem;
+	--height-footer: 40rem;
+	--gl-indent: 1rem;
 }
 
 html {
 	height: 100%;
-	font: 400 calc(100vw / 1920 * 10)/1.33 $font_1;
+	font: 400 10px/1.33 $font_1;
 }
 
 body {
@@ -63,7 +63,7 @@ a {
 
 	&:hover,
 	&:focus {
-		text-decoration: underline;
+		text-decoration: none;
 	}
 
 }

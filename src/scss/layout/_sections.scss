@@ -4,24 +4,25 @@
 
 	width: 100%;
 
-	font-size: 1rem;
-
-	//remove this demo style
-	&.demo_mod {
-		@extend %global_flex_block_row_nowrap_center_center;
-
-		height: calc(100vh - (var(--height-footer) + var(--height-header)));
-
-		font-size: 4rem;
-		color: $white;
-		text-align: center;
-
-		background-color: $black;
-	}
+	font-size: $font_size_base;
 }
 
 .section_in {
 	max-width: $page_width;
 	width: 100%;
 	margin: 0 auto;
+}
+
+.section_grid {
+	padding: 0 calc(var(--gl-indent) / 2);
+}
+
+.indent_mod {
+	padding: 0 calc(var(--gl-indent) / 2);
+}
+
+
+// TODO: delete style
+.header, .footer, .indent_mod, .section_in {
+	background-color: rgb(202, 202, 202);
 }
