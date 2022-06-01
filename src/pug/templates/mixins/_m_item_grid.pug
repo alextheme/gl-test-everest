@@ -1,14 +1,14 @@
-mixin item_grid(i_data, index)
-  .item_grid(class= `item_grid--position_${index + 1}_mod`)
+mixin item_grid(i_data, mod, n)
+  .item_grid(class= mod)  
     .item_grid_wrap
-      .item_grid_in 
-        span.index= `${index + 1}`
+      .item_grid_in
         //- a.item_grid__img
         //-   +picture({
         //-     img: i_data.img,
         //-     class: 'section_bg',
         //-     img_class: 'section_bg__img',
         //-   })
+        .index= n
         
         .item_grid__context
           .item_grid__status= i_data.status

@@ -1,4 +1,19 @@
+- 
+  mods = {
+    'item_grid--position_1_mod': [1],
+    'item_grid--position_2_mod': [15, 23],
+    'item_grid--position_row_mod': [6, 10, 13, 16, 17, 21, 22, 25, 27, 31],
+    'item_grid--position_col_mod': [7, 14, 18, 19, 20, 28, 29, 30],
+  };
+  offset = 13;
+  step = 19;
+
 mixin grid_list(data)
   ul.grid_list
-    each item, index in data 
-      +item_grid(item, index)  
+    each item, i in data 
+      - 
+        remainder = (i + 1 - offset) % step;
+        index = (remainder === 0) ? offset : remainder + offset;
+        mod = Object.keys(mods).find(key =>	mods[key].includes(index));
+
+      +item_grid(item, mod, i + 1)
