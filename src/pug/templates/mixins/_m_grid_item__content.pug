@@ -1,0 +1,24 @@
+mixin grid_item__content(params)
+  .grid_item__content(class= params.content_mod && `grid_item__content--${params.content_mod}`)
+    .grid_item__content_in= params.item.accentMod
+      if params.item.status
+        .grid_item__status= params.item.status
+    
+      .grid_item__header(class= params.item_header_mod && `grid_item__header--${params.item_header_mod}`)
+        a.grid_item__tag_link(class= `grid_item__tag_link--${params.color_tag_mod}` href='#')= params.item.tag
+
+        if params.item.author
+          .grid_item__author= params.authorTitle + params.item.author
+        else 
+          .grid_item__icon_tagging_w: +icon('icon_tagging', 'icon_tagging')
+        
+      h3.grid_item__title(class= `grid_item__title--${params.font_size_mod}`)
+        a.grid_item__link(href='#')= params.item.title
+      
+      if params.item.descr
+        .grid_item__descr= params.item.descr 
+      
+      if params.item.date
+        .grid_item__date_wrap
+          .grid_item__date= params.item.date
+          .grid_item__time= params.item.time

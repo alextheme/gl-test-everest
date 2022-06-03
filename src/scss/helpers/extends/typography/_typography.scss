@@ -8,3 +8,30 @@
 %title_offset {
 	margin-bottom: 2rem;
 }
+
+@mixin font_style($font_size: 1.2rem, $font_weight: 500, $line_height: $font_size, $letter_spacing: null) {
+	font-family: 'Apercu-med', sans-serif;
+	font-size: $font_size;
+	font-weight: $font_weight;
+	line-height: $line_height;
+	@if not $letter_spacing {
+		letter-spacing: $letter_spacing;
+	};
+}
+
+%title_font_1L {
+	@include font_style(1.6rem, 500, 2.2rem, .04375rem)
+}
+
+%title_font_1 {
+	@include font_style(1.6rem, 500, 2.2rem)
+}
+
+%title_font_2 {
+	@include font_style(2.2rem, 500, 2.8rem)
+}
+
+%title_font_3 {
+	@include font_style(3.6rem, 500, 4rem)
+}
+

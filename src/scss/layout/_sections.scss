@@ -14,15 +14,15 @@
 }
 
 .section_grid {
-	padding: 0 calc(var(--gl-indent) / 2);
+	//
 }
 
 .indent_mod {
-	padding: 0 calc(var(--gl-indent) / 2);
+	// padding: 0 .5rem;
 }
 
 
 // TODO: delete style
 .header, .footer, .indent_mod, .section_in {
-	background-color: rgb(202, 202, 202);
+	background-color: rgb(224, 224, 224);
 }

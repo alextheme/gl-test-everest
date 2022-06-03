@@ -1,0 +1,19 @@
+mixin image_wrapper(item, img_mod, video_mod)
+  if item.img
+    .grid_item__img_wrap(class= `${img_mod && `grid_item__img_wrap--${img_mod}`} grid_item__img_wrap--${video_mod}`)
+      if video_mod 
+        .grid_item__video_btn_w(class= `grid_item__video_btn_w--${video_mod}`)
+          span.grid_item__video_btn(class= `grid_item__video_btn--${video_mod}`)
+      if item.link.img
+        a.grid_item__link(href= item.link.img)
+          +picture({
+            img: item.img,
+            class: 'picture_wrap',
+            img_class: 'picture',
+          })
+      else 
+        +picture({
+            img: item.img,
+            class: 'picture_wrap',
+            img_class: 'picture',
+          })

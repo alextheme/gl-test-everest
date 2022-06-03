@@ -1,10 +1,11 @@
 - 
-  mods = {
-    'item_grid--position_1_mod': [1],
-    'item_grid--position_2_mod': [15, 23],
-    'item_grid--position_row_mod': [6, 10, 13, 16, 17, 21, 22, 25, 27, 31],
-    'item_grid--position_col_mod': [7, 14, 18, 19, 20, 28, 29, 30],
+  size_mods = {
+    'size_2': [15, 23],
+    'size_3': [1],
+    'size_r': [6, 10, 13, 16, 17, 21, 22, 25, 27, 31],
+    'size_c': [7, 14, 18, 19, 20, 28, 29, 30],
   };
+  default_size = 'size_1';
   offset = 13;
   step = 19;
 
@@ -13,7 +14,37 @@ mixin grid_list(data)
     each item, i in data 
       - 
         remainder = (i + 1 - offset) % step;
-        index = (remainder === 0) ? offset : remainder + offset;
-        mod = Object.keys(mods).find(key =>	mods[key].includes(index));
+        number_item = (remainder === 0) ? offset : remainder + offset;
+        item_size = Object.keys(size_mods).find(key => size_mods[key].includes(number_item)) || default_size;
 
-      +item_grid(item, mod, i + 1)
+        //------------------------------------------------------------ help variables
+        is_item_size_1 = item_size === 'size_1';
+        is_item_size_2 = item_size === 'size_2';
+        is_item_size_3 = item_size === 'size_3';
+        is_item_size_row = item_size === 'size_r';
+        is_item_size_col = item_size === 'size_c';
+        
+        fs1 = is_item_size_1 ? '1L' : is_item_size_3 ? '1' : null;;
+        fs2 = is_item_size_2 ? item.img ? item.descr ? '1' : '2' : '3' : null;
+        fs3 = (is_item_size_row || is_item_size_col) ? (item.img || item.descr) ? '1' : '2' : null;
+        
+        img_bg_mod = (item.img && (is_item_size_2 || is_item_size_3)) ? 'img_bg_mod' : '';
+        img_picture_mod = (item.img && (is_item_size_row || is_item_size_col)) ? 'picture_mod' : '';
+        //------------------------------------------------------------ help variables###
+
+        //------------------------------------------------------------ mods
+        img_mod = img_bg_mod || img_picture_mod;
+        font_size_mod = `font_size_${fs1 || fs2 || fs3}_mod`;
+        item_header_mod = (is_item_size_row && !(img_mod) || is_item_size_2) ? 'item_head_row_mod' : item.author ? 'item_head_col_mod' : 'item_head_row_mod';
+        content_mod = `content_${is_item_size_3 ? '3' : (is_item_size_2 && img_bg_mod) ? '2' : '1'}_mod`;
+        //------------------------------------------------------------ mods###
+
+      +grid_item({
+        item,
+        item_size,
+        number_item,
+        img_mod,
+        font_size_mod,
+        item_header_mod,
+        content_mod,        
+      })
