@@ -1,0 +1,6 @@
+mixin button_vid(link, video_mod)
+  if video_mod 
+    .grid_item__video_link_w(class= `grid_item__video_link_w--${video_mod}`)
+
+      - text_btn = video_mod == 'video1_mod' ? 'Смотреть' : '';    
+      a.grid_item__video_link(class= `grid_item__video_link--${video_mod}` href= link)= text_btn

@@ -1,4 +1,10 @@
-// .btn_base {
-// 	@extend %blue_btn_1;
-// 	@extend %btn_size_1;
-// }
+.grid_item__video_link--video1_mod {
+	@extend %btn_positions_bottom_right;
+	@extend %white_btn_size_1;
+}
+
+.grid_item__video_link--video2_mod {
+	@extend %btn_position_center;
+	@extend %white_btn_round_2;
+	@extend %btn_size_2;
+}

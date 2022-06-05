@@ -1,2 +1,45 @@
-mixin header
+mixin header()
 	header.header
+		.section_in.header_in 	
+			.header__logo_wrap
+				a.header__logo_link
+					.icon_logo_wrap
+						+icon('logo', 'logo_icon')
+					.icon_descr_wrap
+						+icon('logo_description', 'logo_description_icon')
+
+			+menu({
+				gl_class: 'header__menu',
+				items: [
+					{ title: 'О нас', url: '#', active: true },
+					{ title: 'Решения', url: '#', active: false },
+					{ title: 'Аналитика', url: '#', active: false },
+					{ title: 'Партнеры', url: '#', active: false },
+					{ title: 'Контакты', url: '#', active: false },
+					{ title: 'Подписка', url: '#', active: false },
+				]
+			})
+
+			+social({
+				mod_block: 'header_mod',
+				items: [
+					{ name_icon: 'facebook', mod_icon: '', mod_link: '' },
+					{ name_icon: 'twitter', mod_icon: '', mod_link: '' },
+					{ name_icon: 'rss', mod_icon: '', mod_link: '' },
+					{ name_icon: 'youtube', mod_icon: '', mod_link: '' },
+				]
+			})
+
+			.header__search_wrap 
+				button.header__search_button
+					+icon('shape')
+				input.header__search_input(type= 'search' placeholder= '+')
+
+			.header__language_wrap 
+				+menu({
+					gl_class: 'header__language',
+					items: [
+						{ title: 'ua', url: '#', active: true },
+						{ title: 'ru', url: '#', active: false },
+					]
+				})

@@ -4,9 +4,9 @@ const { merge } = require('webpack-merge');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpackConfiguration = require('../webpack.config');
 const environment = require('./environment');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = merge(webpackConfiguration, {
 	mode: 'production',

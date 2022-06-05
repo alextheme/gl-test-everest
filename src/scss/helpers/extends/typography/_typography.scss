@@ -19,6 +19,14 @@
 	};
 }
 
+%btn_vid_font {
+	@include font_style(1.2rem, 500, 1.6rem, .04375rem)
+}
+
+%title_accent_font {
+	@include font_style(2.6rem, 500, 2.6rem)
+}
+
 %title_font_1L {
 	@include font_style(1.6rem, 500, 2.2rem, .04375rem)
 }

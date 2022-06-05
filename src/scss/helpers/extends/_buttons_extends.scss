@@ -39,3 +39,114 @@
 
 	border-radius: $gl_radius;
 }
+
+
+//------------------------- buttons
+
+%btn_positions_bottom_right {
+	position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 90;
+
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+
+	&::before {		
+		position: absolute;
+		top: 50%;
+		right: 0;	
+
+		transform: translate(-36%, -74%);
+	}
+
+  &::after{
+    position: absolute;
+    top: -2px;
+		right: 0;
+  }
+}
+
+%btn_position_center {
+	position: absolute;
+  top: 50%;
+  left: 50%;
+
+	transform: translate(-50%, -50%);
+
+	&::before {
+		position: absolute;
+		right: 0;
+		top: 50%;
+	}
+}
+
+%white_btn_size_1 {
+	@extend %transition_all;
+	
+	display: block;
+
+  width: 8rem;
+  height: 2rem;
+
+  color: $white;
+  cursor: pointer;
+
+	&::before {		
+    content: '';
+		@include triangle(right, $white, .4rem);	
+	}
+
+  &::after{
+    content: '';
+
+    width: 2rem;
+    height: 2rem;
+
+    border-radius: 50%;
+    border: 1.8px solid $white;
+    background-color: transparent;
+  }
+
+	&:hover {
+		opacity: .5;
+	}
+}
+
+%white_btn_round_2 {
+	@extend %transition_all;
+
+	cursor: pointer;
+	border-radius: 50%;
+  border: none;
+  background-color: $white;
+
+  -webkit-box-shadow: 0px 2px 14px 0px #000000bf;
+  -moz-box-shadow: 0px 2px 14px 0px #000000bf;
+  box-shadow: 0px 2px 14px 0px #000000bf;
+
+	&:before {
+    @extend %transition_all;
+    content: '';
+	}
+
+	&:hover {
+    -webkit-box-shadow: 0px 0px 0px 0px #000000bf;
+    -moz-box-shadow: 0px 0px 0px 0px #000000bf;
+    box-shadow: 0px 0px 0px 0px #000000bf;
+
+    &:before {
+      opacity: .5;
+    }
+  }
+}
+
+%btn_size_2 {
+  width: 4.4rem;
+  height: 4.4rem;
+
+	&::before {
+    transform: translate(-24%, -50%);
+		@include triangle(right, $black, 1rem);
+	}
+}

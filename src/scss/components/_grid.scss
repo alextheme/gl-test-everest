@@ -35,6 +35,14 @@ $height_item_grid: 24rem;
   left: 0;
 }
 
+@mixin position_abs_full_size {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  @include size_full;
+}
+
 @mixin hover_transition_opacity {
   @extend %transition_opacity;
 
@@ -163,11 +171,7 @@ $height_item_grid: 24rem;
   }
 
   &.grid_item__img_wrap--img_bg_mod {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    @include size_full;
+    @include position_abs_full_size;
   }
 }
 // ------------------------------------------picture###
@@ -228,6 +232,16 @@ $height_item_grid: 24rem;
   position: relative;
 }
 
+.grid_item__content--content_2_mod.grid_item__content--img_bg_mod,
+.grid_item__content--content_3_mod.grid_item__content--img_bg_mod {
+  .grid_item__title,
+  .grid_item__descr,
+  .grid_item__author,
+  .grid_item__date_wrap {
+    color: $white;
+  }
+}
+  
 .grid_item__content--content_2_mod,
 .grid_item__content--content_3_mod {
 
@@ -243,20 +257,13 @@ $height_item_grid: 24rem;
     max-height: 10.8rem;
     
     text-transform: uppercase;
-    color: $white;
     overflow: hidden;
   }
 
   .grid_item__descr {
     max-height: 22rem;
-    
-    color: $white;
-    overflow: hidden;
-  }
 
-  .grid_item__author,
-  .grid_item__date_wrap {
-    color: $white;
+    overflow: hidden;
   }
 }
 // ------------------------------------------content###
@@ -344,64 +351,101 @@ $height_item_grid: 24rem;
   position: relative;
 }
 
-.grid_item__video_btn_w--video2_mod {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.grid_item__video_btn--video2_mod {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  width: 4.4rem;
-  height: 4.4rem;
-
-  border-radius: 50%;
-  border: 1px solid $white;
-  background-color: $white;
-
-  -webkit-box-shadow: 0px 2px 14px 0px #000000bf;
-  -moz-box-shadow: 0px 2px 14px 0px #000000bf;
-  box-shadow: 0px 2px 14px 0px #000000bf;
-
-  transform: translate(-50%, -50%);
-
-  cursor: pointer;
-
-  &:hover {
-
-    -webkit-box-shadow: 0px 0px 0px 0px #000000bf;
-    -moz-box-shadow: 0px 0px 0px 0px #000000bf;
-    box-shadow: 0px 0px 0px 0px #000000bf;
-
-    &:before {
-      border-left-color: #0000009d;
-    }
-  }
-
-  &:before {
-		@include triangle_narrow(right, $black, 1.4rem);
-		
-    content: '';
-		position: absolute;
-		right: 0;
-		top: 50%;
-
-    transform: translate(-24%, -50%);
-
-    @extend %transition_all;
-	}
-
-  @extend %transition_all;
+.grid_item__video_link_w--video2_mod {
+  @include position_abs_full_size;
 }
 // ------------------------------------------item video mod###
 
 // ------------------------------------------accent
-.grid_item--accent1_mod {
+.grid_item__img_wrap--accent1_mod {
+  @include position_abs_full_size;
+}
+
+.grid_item__content_in--accent1_mod {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+
+  display: flex;
+  flex-direction: column;
+
+  width: min-content;
+  height: 100%;
+}
+
+.grid_item__header--accent1_mod {
+  text-align: center;
+
+  margin: 0 auto;
+
+  order: 1;
+
+  .grid_item__tag_link {
+    display: none;
+  }
+}
+
+.grid_item__author--accent1_mod {
+  flex-grow: 1;
+
+  width: max-content;
+  padding: 0 1rem;
   
+  line-height: 2.4rem;
+  
+  color: $white;
+  border: 1px solid $white;
+}
+
+.grid_item__title--accent1_mod {
+  @extend %title_accent_font;
+  margin-bottom: 1.4rem;
+  
+  text-align: center;
+  text-transform: uppercase;
+  
+  color: $color_link_base;
+
+  .title_word {
+    width: fit-content;
+    padding: .4rem;
+    margin: 0 auto;
+
+    background-color: $white;
+    margin-bottom: .24rem;
+  }
+
+  .title_accent_word  {
+    color: $color_accent;
+  }
+}
+
+.grid_item__mark--accent1_mod {
+  @extend %title_font_1L;
+  text-align: right;
+  text-transform: uppercase;
+  
+  margin-bottom: 0.6rem;
+  color: $white;
+}
+
+.grid_item--size_1_mod,
+.grid_item--size_c_mod {
+  .grid_item__content_in--accent1_mod {
+    width: 100%;
+  }
+}
+
+.grid_item--size_1_mod {
+
+  .grid_item__title--accent1_mod {
+    font-size: 1.8rem;
+    line-height: 1rem;
+  }
+
+  .grid_item__img_wrap--accent1_mod {
+    display: block;
+  }
 }
 // ------------------------------------------accent###
