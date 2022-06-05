@@ -2,11 +2,11 @@ mixin header()
 	header.header
 		.section_in.header_in 	
 			.header__logo_wrap
-				a.header__logo_link
+				a.header__logo_link(href= '#')
 					.icon_logo_wrap
 						+icon('logo', 'logo_icon')
-					.icon_descr_wrap
-						+icon('logo_description', 'logo_description_icon')
+					.icon_description innovation integrator
+						//- +icon('logo_description', 'logo_description_icon')
 
 			+menu({
 				gl_class: 'header__menu',

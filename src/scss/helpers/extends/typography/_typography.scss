@@ -19,6 +19,10 @@
 	};
 }
 
+%logo_description {
+	@include font_style(1.4rem, 500, 1.4rem)
+}
+
 %btn_vid_font {
 	@include font_style(1.2rem, 500, 1.6rem, .04375rem)
 }
