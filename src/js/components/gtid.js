@@ -5,16 +5,16 @@ export default function grid() {
 	 * @returns void
 	 */
 	const wrapWordsInBlocks = () => {
-		const $node = $('.jsGridItemTitle.grid_item__title--accent1_mod');
+		const $node = $('.js-grid_item__title_link');
 		if (!$node) return;
 
-		const html = $node.children('a').html();
-		const arrText = html.split(' ');
+		const text = $node.html();
+		const arrText = text.split(' ');
 
 		const clearSpan = word => word.replace('<span>', '').replace('</span>', '');
-		const wrapInDiv = (isAccent, word) => `<div class="${isAccent ? 'title_accent_word' : ''} title_word">${clearSpan(word)}</div>`;
+		const wrapInDiv = (isAccent, word) => `<div class="word word--${isAccent ? 'accent_mod' : ''}">${clearSpan(word)}</div>`;
 
-		// !!!!!Digital transformation@@@@@ resulttricted по-!!!!!syntax@@@@@ по-украински'.split(' ');
+		//
 		let accent = false;
 		const str = arrText.reduce((result, word) => {
 			accent = !accent ? word.indexOf('<span>') >= 0 : accent;
@@ -23,7 +23,7 @@ export default function grid() {
 			return currentData;
 		}, '');
 
-		$node.children('a').html(str);
+		$node.html(str);
 	};
 
 	wrapWordsInBlocks();

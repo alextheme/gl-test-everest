@@ -1,0 +1,9 @@
+mixin btn_video(item)
+  if item.link
+    -
+      text_btn = item.accent_look && item.link.video ? 'Смотреть' : '';
+      link_mod = item.accent_look ? item.accent_look : item.link.video ? 'button_1_mod' : 'default_mod';
+      href = item.link.video || item.link.img;
+      
+    a.grid_item__img_link(class= `grid_item__img_link--${link_mod}_mod` href= href)= text_btn
+      .grid_item__img_link_icon(class= `grid_item__img_link_icon--${link_mod}_mod` href= href)

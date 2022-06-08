@@ -1,10 +1,52 @@
-.grid_item__video_link--video1_mod {
-	@extend %btn_positions_bottom_right;
-	@extend %white_btn_size_1;
+// ------------------------------------------circle button accent
+.grid_item__img_link--accent_1_mod {
+	@extend %transition_opacity;
+	
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  display: block;
+
+  width: 8rem;
+  height: 2em;
+  line-height: 2rem;
+
+	&:hover {
+		opacity: .5;
+	}
 }
 
+.grid_item__img_link_icon--accent_1_mod {
+	@extend %circle_btn_1;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+// ------------------------------------------circle button accent###
+
+// ------------------------------------------circle button white
+.grid_item__img_link--button_1_mod_mod {
+  @extend %circle_btn_2;
+	@extend %transition_background;
+
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 5rem;
+  height: 5rem;
+
+	&:hover {
+		background: $color_accent;
+	}
+}
+// ------------------------------------------circle button white###
+
+// ------------------------------------------accent###
+
 .grid_item__video_link--video2_mod {
-	@extend %btn_position_center;
-	@extend %white_btn_round_2;
-	@extend %btn_size_2;
+	@extend %circle_btn_2;
 }

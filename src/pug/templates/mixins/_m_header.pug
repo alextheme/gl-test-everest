@@ -1,6 +1,7 @@
 mixin header()
 	header.header
 		.section_in.header_in 	
+
 			.header__logo_wrap
 				a.header__logo_link(href= '#')
 					.icon_logo_wrap
@@ -8,38 +9,48 @@ mixin header()
 					.icon_description innovation integrator
 						//- +icon('logo_description', 'logo_description_icon')
 
-			+menu({
-				gl_class: 'header__menu',
-				items: [
-					{ title: 'О нас', url: '#', active: true },
-					{ title: 'Решения', url: '#', active: false },
-					{ title: 'Аналитика', url: '#', active: false },
-					{ title: 'Партнеры', url: '#', active: false },
-					{ title: 'Контакты', url: '#', active: false },
-					{ title: 'Подписка', url: '#', active: false },
-				]
-			})
-
-			+social({
-				mod_block: 'header_mod',
-				items: [
-					{ name_icon: 'facebook', mod_icon: '', mod_link: '' },
-					{ name_icon: 'twitter', mod_icon: '', mod_link: '' },
-					{ name_icon: 'rss', mod_icon: '', mod_link: '' },
-					{ name_icon: 'youtube', mod_icon: '', mod_link: '' },
-				]
-			})
-
-			.header__search_wrap 
-				button.header__search_button
-					+icon('shape')
-				input.header__search_input(type= 'search' placeholder= '+')
-
-			.header__language_wrap 
+			.header__menu_wrapper
 				+menu({
-					gl_class: 'header__language',
+					gl_class: 'header__menu',
 					items: [
-						{ title: 'ua', url: '#', active: true },
-						{ title: 'ru', url: '#', active: false },
+						{ title: 'О нас', url: '#', active: true },
+						{ title: 'Решения', url: '#', active: false },
+						{ title: 'Аналитика', url: '#', active: false },
+						{ title: 'Партнеры', url: '#', active: false },
+						{ title: 'Контакты', url: '#', active: false },
+						{ title: 'Подписка', url: '#', active: false },
 					]
 				})
+
+				+social({
+					mod_block: 'header_mod',
+					items: [
+						{ name_icon: 'facebook', mod_icon: '', mod_link: '' },
+						{ name_icon: 'twitter', mod_icon: '', mod_link: '' },
+						{ name_icon: 'rss', mod_icon: '', mod_link: '' },
+						{ name_icon: 'youtube', mod_icon: '', mod_link: '' },
+					]
+				})
+
+				.header__search_wrap 
+					button.header__search_button.btnSearchMob
+						.header__search_icon_wrap
+							+icon('shape')
+					.header__search_input_wrap
+						input.header__search_input(type= 'search' placeholder= '+')
+						.header__search_icon_wrap--input_mod
+							+icon('shape')
+
+				.header__language_wrap 
+					+menu({
+						gl_class: 'header__language',
+						items: [
+							{ title: 'ua', url: '#', active: true },
+							{ title: 'ru', url: '#', active: false },
+						]
+					})
+
+			.header__menu_trigger_btn.menuTrigger
+				.header__menu_trigger_icon_w
+					.menu_trigger_icon
+						span.menu_trigger_decor

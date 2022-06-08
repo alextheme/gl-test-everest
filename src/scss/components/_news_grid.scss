@@ -1,0 +1,130 @@
+$width_item_grid: ($page_width - 2rem * 4) / 5;
+$height_item_grid: 24rem;
+$gap_row: 2rem;
+$gap_col: 2rem;
+
+/// Select children each `$num`, counting from `$start`
+/// @group with-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+/// @param {number} $offset - start number of children
+/// @param {number} $each - id of the child
+@mixin offset-each($offset, $each: 19) {
+  &:nth-child(#{$each}n + #{$offset}) {
+    @content;
+  }
+}
+
+@mixin offset_each-row($num) {
+  @include offset-each($num, 19) {
+    grid-row-end: span 1;
+    grid-column-end: span 2; 
+  }
+}
+
+@mixin offset_each-column($num) {
+  @include offset-each($num, 19) {
+    grid-row-end: span 2;
+    grid-column-end: span 1; 
+  }
+}
+
+@mixin offset_each-max($num) {
+  @include offset-each($num, 19) {
+    grid-row-end: span 2;
+    grid-column-end: span 2; 
+  }
+}
+
+// ------------------------------------------list
+.grid_list {
+  display: grid;
+  grid-auto-rows: $height_item_grid;
+  grid-gap: $gap_row $gap_col;
+
+  width: 100%;
+
+  margin: 0 auto;
+  
+  /* ----------- 1200px + ----------- */
+  @include bp($point_1 - 1, min) {
+    grid-template-columns: repeat(5, $width_item_grid);
+  }
+
+  /* ----------- 1200px - 1024px ----------- */
+  @include bp($point_1, $point_2) {
+    grid-template-columns: repeat(4, $width_item_grid);
+ 
+    [data-item-number="3"],
+    [data-item-number="5"],
+    [data-item-number="9"],
+    [data-item-number="12"] {
+      grid-row-start: 5;
+    }  
+  }
+
+  /* ----------- 1024px - 768px ----------- */
+  @include bp($point_3, $point_4 - 1) {
+    grid-template-columns: repeat(3, $width_item_grid);
+
+    [data-item-number="12"] {
+      grid-row-start: 3;
+    }
+  }
+  
+  /* ----------- 768px - 480px ----------- */
+  @include bp($point_4, $point_6 - 1) {
+    grid-template-columns: repeat(2, $width_item_grid);
+
+    [data-item-number="1"] {
+      grid-row-end: span 2;
+      grid-column-end: span 2;
+    }
+  }
+  
+  /* ----------- 0 - 480px ----------- */
+  @include bp($point_6) {
+    display: block;
+  }
+}
+// ------------------------------------------list###
+
+// ------------------------------------------item
+.grid_item {
+  position: relative;
+
+  background-color: $item_grid_bg;
+
+  width: 100%;
+  height: 100%;
+
+  /* ----------- 1200px - 1024px ----------- */
+  @include bp($point_1, $point_2) { 
+    @include offset_each-row(14);
+    @include offset_each-row(20);
+    @include offset_each-row(24);
+    @include offset_each-row(26);
+    @include offset_each-max(30);
+  }
+
+   /* ----------- 1024px - 768px ----------- */
+   @include bp($point_3, $point_4 - 1) {
+    @include offset_each-column(16);
+    @include offset_each-column(22);
+    @include offset_each-column(24);
+    @include offset_each-column(26);
+  }
+
+  /* ----------- 768px - 480px ----------- */
+  @include bp($point_4, $point_6 - 1) {
+    @include offset_each-row(14);
+    @include offset_each-row(20);
+    @include offset_each-column(25);
+    @include offset_each-row(30);
+  }
+
+  /* ----------- 0 - 480px ----------- */
+  @include bp($point_6) {
+    margin-bottom: 2rem;
+  }
+}  
+// ------------------------------------------item###

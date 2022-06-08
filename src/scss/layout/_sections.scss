@@ -5,15 +5,43 @@
 	width: 100%;
 
 	font-size: $font_size_base;
+
+	/* ----------- 0 - 480px ----------- */
+	@include bp($point_6 + 1) {
+		padding: 0 calc(var(--gl-indent) + 1px);
+	}
 }
 
 .section_in {
 	max-width: $page_width;
 	width: 100%;
 	margin: 0 auto;
-}
 
-// // TODO: delete style
-// .header, .footer, .indent_mod, .section_in {
-// 	background-color: rgb(224, 224, 224);
-// }
+	/* ----------- 1200px + ----------- */
+	@include bp($point_1 - 1, min) {
+		max-width: $page_width;
+	}
+	
+	/* ----------- 1200px - 1024px ----------- */
+	@include bp($point_1, $point_2) {
+		$page_width: 92rem;
+		max-width: $page_width;
+	}
+	
+	/* ----------- 1024px - 768px ----------- */
+	@include bp($point_3, $point_4 - 1) { 
+		$page_width: 68.5rem;
+		max-width: $page_width;
+	}
+	
+	/* ----------- 768px - 480px ----------- */
+	@include bp($point_4, $point_6 - 1) {
+		$page_width: 45rem;
+		max-width: $page_width;
+	}
+	
+	/* ----------- 0 - 480px ----------- */
+	@include bp($point_6 + 1) {
+    width: 100%;
+  }
+}

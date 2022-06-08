@@ -1,0 +1,136 @@
+// ---------------------------------------------item
+.grid_item--look_accent_1_mod {
+  grid-column-end: span 2;
+  grid-row-end: span 1;
+
+  @include bp($point_6) {
+    background: $color_text_light;
+  }
+}
+// ---------------------------------------------item###
+
+// ---------------------------------------------image
+.grid_item__image_wrap--look_accent_1_mod {
+  @include position_abs_full_size;
+}
+
+.grid_item__image_wrap--look_accent_1_mod {
+  @include bp($point_6) {
+    top: 50%;
+    height: auto;
+    transform: translate(0, -50%);
+  }
+}
+// ---------------------------------------------image###
+
+// ---------------------------------------------content
+.grid_item__content_wrap--look_accent_1_mod {
+  padding: 1.4rem;
+    
+  @include size_full;
+}
+
+.grid_item__content--look_accent_1_mod {
+  position: relative;
+
+  padding: 3rem 0;
+
+  @include size_full;
+}
+
+.grid_item__content_in--look_accent_1_mod {  
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2.4rem;
+  justify-items: center;
+  align-items: flex-end;
+
+  width: min-content;
+  height: 100%;
+  margin-left: auto;
+  
+  overflow: hidden;
+}
+// ---------------------------------------------content###
+
+// ---------------------------------------------title
+.grid_item__title--look_accent_1_mod {
+  margin-bottom: 1rem;
+  
+  text-align: center;
+  text-transform: uppercase;
+
+  color: $color_link_base;
+
+  .word {
+    width: fit-content;
+    padding: .4rem;
+    margin: 0 auto;
+
+    background-color: $white;
+    margin-bottom: .24rem;
+  }
+
+  .word--accent_mod  {
+    color: $color_accent;
+  }
+
+  .grid_item__link {
+
+  }
+}
+// ---------------------------------------------title###
+
+// ---------------------------------------------description
+.grid_item__descr--look_accent_1_mod {
+  display: none;
+}
+// ---------------------------------------------description###
+
+// ---------------------------------------------author
+.grid_item__author--look_accent_1_mod {
+  order: 1;
+
+  width: max-content;
+  padding: 0 1rem;
+
+  line-height: 2.4rem;
+
+  color: $white;
+  border: 1px solid $white;
+}
+// ---------------------------------------------author###
+
+// ------------------------------------------item date, tag
+.grid_item__date_wrap--look_accent_1_mod {
+  display: none;
+}
+
+.grid_item__tag_link--look_accent_1_mod {
+  display: none;
+}
+// ------------------------------------------item date, tag###
+
+// ------------------------------------------mark###
+.grid_item__mark--look_accent_1_mod {
+  @extend %title_font_1L;
+  
+  position: absolute;
+  top: 0;
+  right: 0;
+  
+  text-transform: uppercase;
+  
+  color: $white;
+}
+// ------------------------------------------mark###
+
+// ------------------------------------------button
+.grid_item__img_link--accent_1_mod {
+  color: $white;
+}
+// ------------------------------------------button###
+
+// ------------------------------------------resize
+// ------------------------------------------resize###
+

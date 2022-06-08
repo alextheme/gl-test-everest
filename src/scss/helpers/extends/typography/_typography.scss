@@ -14,7 +14,7 @@
 	font-size: $font_size;
 	font-weight: $font_weight;
 	line-height: $line_height;
-	@if not $letter_spacing {
+	@if $letter_spacing {
 		letter-spacing: $letter_spacing;
 	};
 }

@@ -1,18 +1,11 @@
-mixin grid_item(params)
-  if params.item.accentMod
-    - params.img_mod = params.font_size_mod = params.item_header_mod = params.content_mod = params.item.accentMod;
-  - params.authorTitle = `Автор:\u00A0`;
-  - params.color_tag_mod = `color_${params.number_item % 8 ? params.number_item % 8 : 8}_mod`;
-  - params.video_mod = params.item.link.video ? params.item.accentMod ? 'video1_mod' : 'video2_mod' : '';
-  
-  .grid_item(class= `grid_item--${params.item_size}_mod ${params.img_mod && `grid_item--${params.img_mod}`}`)
-    
+mixin grid_item(params)  
+  - 
+    resize_mod = params.item_resize.length === 2 ? `grid_item--${params.item_resize[0]} grid_item--${params.item_resize[1]}` : '';
+    resize_mod = params.item_resize.length == 1 ? `grid_item--${params.item_resize[0]}` : resize_mod;
+
+  .grid_item(class= `grid_item--${params.look_mod} ${resize_mod}` data-item-number= `${params.counter}`)
     //- image box
-    +image_wrapper(params.item, params.img_mod, params.video_mod)
+    +image_wrapper(params.item, params.img_mod, params.look_mod)
     
     //- content box
-    if (params.item_size == 'size_c' || params.item_size == 'size_r') && params.img_mod == 'picture_mod'
-      .grid_item__content_wrapper
-        +grid_item__content(params)
-    else 
-      +grid_item__content(params)
+    +grid_item__content(params)
