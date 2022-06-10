@@ -26,13 +26,13 @@
 }
 //------------------------------------------------------------layout###
 
-//------------------------------------------------------------hide scrol
+//------------------------------------------------------------hide scroll
 .header--hide_mod {
 	@extend %transition_transform;
 
 	transform: translate(0, calc(0px - var(--height-header)));
 }
-//------------------------------------------------------------hide scrol###
+//------------------------------------------------------------hide scroll###
 
 
 @mixin width_height_full {
@@ -149,7 +149,7 @@
 
 //--------------------------------------------------------------social
 .social_list {
-	@extend %global_flex_block_row_wrap_flex-start;
+	@extend %global_flex_block_row_wrap_center;
 
 	&.header_mod {
 		@include bp($point_1 - 1, min) {

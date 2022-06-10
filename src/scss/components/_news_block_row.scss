@@ -7,16 +7,16 @@
 
   @include bp($point_6) { // 0 - 480px 
     @include grid_item_block_height_auto;  
-    @include heigth_auto_content_pic_img_wrap;
+    @include height_auto_content_pic_img;
   }
 }
 
 .grid_item--look_row_1_mod {
-  @include bp($point_6 - 1, min) { // max - 480px 
+  @include bp($point_4 - 1, min) { // max - 768px 
     display: flex;
   }
 
-  @include bp($point_6) { // 0 - 480px 
+  @include bp($point_4) { // 0 - 768px 
     display: block;
   }
 }

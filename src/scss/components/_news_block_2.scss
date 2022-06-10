@@ -83,6 +83,13 @@
 .grid_item__author--look_2_2_mod {
   color: $white;
 }
+
+.grid_item--look_2_1_mod,
+.grid_item--look_2_2_mod {
+  .grid_item__header--row_mod {
+    width: 100%;
+  }
+}
 // ------------------------------------------item header###
 
 // ------------------------------------------item title

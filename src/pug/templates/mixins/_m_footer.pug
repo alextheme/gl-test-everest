@@ -1,7 +1,7 @@
 mixin footer
 	footer.footer
 		.footer_wrap
-			.footer_in 
+			.footer_in.section_in.m_copyright_mod
 				.footer_container.flex_col_mod
 					a.footer_logo(href= '#')
 						.icon_logo_wrap
@@ -17,13 +17,13 @@ mixin footer
 								{ name_icon: 'youtube', mod_icon: '', mod_link: 'footer_mod' },
 							]
 						})
-					.footer_copyright
+					.footer_copyright.m_copyright_mod
 						span ©
 						span 2020 Everest
 							br
 							| ALL RIGHTS RESERVED
 				
-				.footer_container
+				.footer_container.mobile_hidden_mod
 					.footer_menu_wrap 
 						+menu({
 							gl_class: 'footer_menu',
@@ -66,7 +66,7 @@ mixin footer
 								})
 
 				.footer_container.flex_col_mod
-					.footer_about_wrap 
+					.footer_about_wrap.mobile_hidden_mod
 						.footer_about__title О нас
 						.footer_about__description 
 							p EVEREST - опытный интегратор digital-технологий, продуктов и сервисов для цифровой трансформации бизнеса, корпоративного и государственного секторов.

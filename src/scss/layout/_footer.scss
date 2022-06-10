@@ -17,14 +17,33 @@
 
 .footer_in {
 	position: relative;
+	
+	@include bp($point_6 - 1, min) {
+		display: grid;
+	}
 
-	max-width: 115.5rem;
-	width: 100%;
-	height: 100%;
-	margin: 0 auto;
+	@include bp($point_1 - 1, min) {
+		grid-template-columns: 25rem repeat(2, 1fr);
+	}
 
-	display: grid;
-	grid-template-columns: 25rem repeat(2, 1fr);
+	@include bp($point_1, $point_4 - 1) {
+		grid-template-columns: 25rem 1fr;
+	}
+
+	@include bp($point_4 - 1, $point_6) {
+		grid-template-columns: 4fr 6fr;
+    grid-column-gap: 2rem;
+	}
+
+	@include bp($point_6) {
+		display: block;
+	}
+
+	&.m_copyright_mod {
+		@include bp($point_6) {
+			padding-bottom: 10rem;
+		}
+	}
 } 
 //----------------------------------------------- grid###
 
@@ -41,11 +60,23 @@
 }
 //----------------------------------------------- logo###
 
-//----------------------------------------------- logo###
+//----------------------------------------------- container
 .footer_container.flex_col_mod {
 	@extend %global_flex_block_column_wrap_flex-start;
+
+	@include bp($point_6) {
+		justify-content: center;
+    align-content: center;
+    align-items: center;
+	}
 }
-//----------------------------------------------- logo###
+
+.footer_container.mobile_hidden_mod {
+	@include bp($point_1) {
+		display: none;
+	}
+}
+//----------------------------------------------- container###
 
 
 
@@ -53,6 +84,17 @@
 .footer_social_wrap {
 	margin-top: auto;
 	margin-bottom: 2rem;
+
+	@include bp($point_6) {
+		width: 100%;
+		text-align: center;
+
+    padding: 3rem 0;
+    margin-bottom: 4rem;
+
+		border-top: 1px solid rgba($white, .2);
+		border-bottom: 1px solid rgba($white, .2);
+	}
 }
 
 .footer_social__title {
@@ -67,6 +109,10 @@
 	
 	color: $white;
 	border-bottom: 1px solid $white;
+
+	@include bp($point_6) {
+		display: none;
+	}
 }
 
 .social_link.footer_mod {
@@ -92,6 +138,16 @@
 		&:first-child {
 			font-size: 2.6rem;
 		}
+	}
+
+	&.m_copyright_mod {
+		@include bp($point_6) {
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translate(-50%, 0);
+		}
+
 	}
 }
 //----------------------------------------------- copyright###
@@ -181,7 +237,12 @@
 //----------------------------------------------- menu navigation###
 //----------------------------------------------- about
 .footer_about_wrap {
-
+	
+	@include bp($point_6) {
+		&.mobile_hidden_mod {
+			display: none;
+		}
+	}
 }
 
 .footer_about__title {
@@ -218,12 +279,20 @@
 
 }
 //----------------------------------------------- about###
+
 //----------------------------------------------- subscribe
 .footer_subscribe_wrap {
 	justify-self: stretch;
 
-	padding-right: 3rem;
 	margin-top: auto;
+
+	@include bp($point_4 - 1, min) {
+		padding-right: 3rem;
+	}
+
+	@include bp($point_6) {
+		width: 100%;
+	}
 }
 
 .footer_subscribe__title {
@@ -235,6 +304,10 @@
 	line-height: 1.14286;
 
 	color: $white;
+
+	@include bp($point_6) {
+		text-align: center;
+	}
 }
 
 .footer_subscribe__form {
@@ -246,8 +319,11 @@
 }
 
 .form_input.footer_mod {
-	width: 22rem;
-	margin-right: 2rem;
+	@include bp($point_4) {
+		width: 100%;
+		margin: 0 auto 2rem;
+		max-width: 30rem;
+	}
 }
 
 .form_input__field.footer_mod {
@@ -294,11 +370,22 @@
 
 .footer_subscribe__btn {
 	@extend %transition_color_background;
+	
 	margin-left: auto;
 
 	&:hover {
 		color: $color_accent;
 		background: $white;
+	}
+
+	@include bp($point_4, $point_6 - 1) {
+		width: 100%;
+	}
+
+	@include bp($point_6) {
+		width: 100%;
+		max-width: 30rem;
+		margin: 0 auto;
 	}
 }
 

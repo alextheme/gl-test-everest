@@ -48,7 +48,7 @@
   height: $height_item_grid;
 }
 
-@mixin heigth_auto_content_pic_img_wrap {
+@mixin height_auto_content_pic_img{
   .grid_item__content_wrap,
   .grid_item__picture_wrap,
   .grid_item__image_wrap  {

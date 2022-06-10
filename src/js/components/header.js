@@ -10,14 +10,14 @@ const header = (vars) => {
 
 	// scroll - hide / show menu
 	$(window).on('scroll', (event) => {
-		const cuurWindowScrollTop = $(window).scrollTop();
-		if (cuurWindowScrollTop > windowScrollTop) {
+		const currWindowScrollTop = $(window).scrollTop();
+		if (currWindowScrollTop > windowScrollTop) {
 			$('.header').addClass('header--hide_mod');
 		} else {
 			$('.header').removeClass('header--hide_mod');
 		}
 
-		windowScrollTop = cuurWindowScrollTop;
+		windowScrollTop = currWindowScrollTop;
 	});
 
 	// button menu
@@ -27,7 +27,6 @@ const header = (vars) => {
 			type: 'inline',
 		},
 		alignTop: true,
-		mainClass: 'menu_popup_bg manu_popup_wrap',
 	});
 
 	// button search
@@ -39,7 +38,7 @@ const header = (vars) => {
 		alignTop: true,
 		disableOn: 1200,
 
-		mainClass: 'search_popup_bg search_popup_wrap',
+		mainClass: '',
 	});
 };
 

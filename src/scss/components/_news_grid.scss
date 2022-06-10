@@ -128,4 +128,21 @@ $gap_col: 2rem;
   }
 }  
 // ------------------------------------------item###
+// ------------------------------------------ HELP BOX
 
+.albor__help_data_box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 99;
+
+  padding: 2px  8px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+
+  color: $white;
+  background: rgba(#1b9681, .5);
+}
+// ------------------------------------------ HELP BOX###

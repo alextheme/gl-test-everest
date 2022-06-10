@@ -153,6 +153,7 @@
   @extend %hor_vert_centr;
   
   position: absolute;
+  z-index: 10;
   
   display: block;
 

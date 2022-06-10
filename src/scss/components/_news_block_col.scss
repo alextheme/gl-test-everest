@@ -95,7 +95,7 @@
 
   @include bp($point_6) {
     @include grid_item_block_height_auto;  
-    @include heigth_auto_content_pic_img_wrap;
+    @include height_auto_content_pic_img;
   }
 }
 
@@ -115,7 +115,7 @@
 
   @include bp($point_6) {
     @include grid_item_block_height_auto;  
-    @include heigth_auto_content_pic_img_wrap;
+    @include height_auto_content_pic_img;
   }
 }
 // ------------------------------------------resize###
