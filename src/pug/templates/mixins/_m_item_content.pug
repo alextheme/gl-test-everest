@@ -24,8 +24,9 @@ mixin item_content(params)
           span.grid_item__author(class= `grid_item__author--${params.look_mod}`)= (params.item.accent_look ? params.item.author : params.word_author + params.item.author)
             
         //- title
+        - link = params.item.link && params.item.link.text ? params.item.link.text : '#';
         h3.grid_item__title(class= `grid_item__title--${params.font_size_mod} grid_item__title--${params.look_mod}` )
-          a.grid_item__link(href='#' class= `${params.item.accent_look && 'js-grid_item__title_link'}`)!= params.item.title
+          a.grid_item__link(href= link class= `${params.item.accent_look && 'js-grid_item__title_link'}` target= 'blank')!= params.item.title
         
         //- description
         .grid_item__descr(class= `grid_item__descr--${params.look_mod}`)= params.item.descr
