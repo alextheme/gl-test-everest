@@ -126,8 +126,55 @@
 // ------------------------------------------mark###
 
 // ------------------------------------------button
-.grid_item__img_link--accent_1_mod {
+.text_circle_btn {
+  @extend %transition_all;	
+  
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  
+  display: block;
+
+  width: 8rem;
+  height: 2em;
+  line-height: 2rem;
+
   color: $white;
+  stroke: $white;
+
+  &:hover {    
+		color: $color_accent;
+		stroke: $color_accent;
+	}
+}
+
+.circle_btn {
+  @extend %transition_all;	
+  @extend %hor_vert_centr;
+  
+  position: absolute;
+  
+  display: block;
+
+  color: $white;
+
+  &:hover {    
+		color: $color_accent;
+	}
+}
+
+.grid_item__icon_video_wrap {
+  width: 10rem;
+  height: 10rem;
+}
+
+.grid_item__icon_video_small_wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 2rem;
+  height: 2rem;
 }
 // ------------------------------------------button###
 

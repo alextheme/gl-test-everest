@@ -8,6 +8,7 @@ const header = (vars) => {
 
 	let windowScrollTop = $(window).scrollTop();
 
+	// scroll - hide / show menu
 	$(window).on('scroll', (event) => {
 		const cuurWindowScrollTop = $(window).scrollTop();
 		if (cuurWindowScrollTop > windowScrollTop) {
@@ -40,8 +41,6 @@ const header = (vars) => {
 
 		mainClass: 'search_popup_bg search_popup_wrap',
 	});
-
-	// triggerMenu();
 };
 
 export default header;

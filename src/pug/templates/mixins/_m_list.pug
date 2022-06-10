@@ -18,7 +18,7 @@
   offset = 13;
   step = 19;
 
-mixin grid_list(data)
+mixin list(data)
   ul.grid_list
     each item, i in data
       -
@@ -51,7 +51,7 @@ mixin grid_list(data)
         look_mod = !look_mod && is_item_size_col ? (item.img ? 'look_col_1_mod' : (item.descr ? 'look_col_3_mod' : 'look_col_2_mod')) : look_mod;
         look_mod = !look_mod && is_item_size_2 ? (bg_mod ? (item.descr ? 'look_2_1_mod' : 'look_2_2_mod') : (item.descr ? 'look_2_3_mod' : 'look_2_4_mod')) : look_mod;
         look_mod = !look_mod && is_item_size_3 ? (bg_mod ? (item.descr ? 'look_3_1_mod' : 'look_3_2_mod') : (item.descr ? 'look_3_3_mod' : 'look_3_4_mod')) : look_mod;
-        look_mod = item.accent_look ? `look_${item.accent_look}_mod` : look_mod;
+        look_mod = item.accent_look && is_item_size_row ? `look_${item.accent_look}_mod` : look_mod;
 
         //- item header
         item_header_mod = ((is_item_size_1 && item.author) || (is_item_size_row && img_mod && item.author) || (is_item_size_col && item.author) || look_mod == 'look_3_1_mod' || look_mod == 'look_3_2_mod') ? 'col_mod' : 'row_mod';
@@ -66,7 +66,7 @@ mixin grid_list(data)
         //------------------------------------------------------------ mods###
 
 
-      +grid_item({
+      +item({
         counter: i + 1,
         item,
         look_mod,

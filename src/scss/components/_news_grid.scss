@@ -43,7 +43,7 @@ $gap_col: 2rem;
 
   width: 100%;
 
-  margin: 0 auto;
+  margin: 0 auto 6.4rem;
   
   /* ----------- 1200px + ----------- */
   @include bp($point_1 - 1, min) {
@@ -128,3 +128,4 @@ $gap_col: 2rem;
   }
 }  
 // ------------------------------------------item###
+

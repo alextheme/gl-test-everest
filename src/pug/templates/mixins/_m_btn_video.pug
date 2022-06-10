@@ -2,8 +2,14 @@ mixin btn_video(item)
   if item.link
     -
       text_btn = item.accent_look && item.link.video ? 'Смотреть' : '';
-      link_mod = item.accent_look ? item.accent_look : item.link.video ? 'button_1_mod' : 'default_mod';
+      button = item.accent_look ? 'text_circle_btn' : item.link.video ? 'circle_btn' : '';
       href = item.link.video || item.link.img;
       
-    a.grid_item__img_link(class= `grid_item__img_link--${link_mod}_mod` href= href)= text_btn
-      .grid_item__img_link_icon(class= `grid_item__img_link_icon--${link_mod}_mod` href= href)
+    a.grid_item__img_link(class= `${button} ${button ? 'buttonVideo': ''}` href= href)= text_btn
+      if button
+          if item.accent_look
+            .grid_item__icon_video_small_wrap
+              +icon('icon-video-small')
+          else 
+            .grid_item__icon_video_wrap
+              +icon('icon-video')

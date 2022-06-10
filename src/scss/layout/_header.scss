@@ -68,22 +68,10 @@
 
 .icon_logo_wrap {
 	width: 13.6rem;
-	height: 2.4rem;
-	margin-bottom: 1.2rem;
+	height: 4.4rem;
 }
 
-.icon_description {
-	@extend %logo_description;
-
-	text-align: center;
-	color: #1A1919;
-}
-
-.logo_icon {
-	@include width_height_full;
-}
-
-.logo_description_icon {
+.logo_header_icon {
 	@include width_height_full;
 }
 //--------------------------------------------------------------logo###
@@ -113,14 +101,14 @@
 }
 
 .header__menu__item {
-	@extend %transition_opacity;
+	@extend %transition_color;
 
 	height: calc(var(--height-header) / 2);;
 
 	line-height: calc(var(--height-header) / 2);
 
 	&:hover:not(.header__menu__item--active_mod) {
-		opacity: .5;
+		color: $color_accent;
 	}
 
 	@include bp($point_1 - 1, min) {
@@ -160,15 +148,17 @@
 //--------------------------------------------------------------menu###
 
 //--------------------------------------------------------------social
-.social_list.header_mod {
-	@extend %global_flex_block_row_wrap_center_stretch;
+.social_list {
+	@extend %global_flex_block_row_wrap_flex-start;
 
-	@include bp($point_1 - 1, min) {
-		margin-right: 3rem;
-	}
-
-	@include bp($point_1) {
-		margin-bottom: 3rem;
+	&.header_mod {
+		@include bp($point_1 - 1, min) {
+			margin-right: 3rem;
+		}
+	
+		@include bp($point_1) {
+			margin-bottom: 3rem;
+		}
 	}
 }
 
@@ -191,16 +181,22 @@
 	width: 2.2rem;
 	height: 2rem;
 
-	&:hover {
-		opacity: .5;
-	}
+	&.header_mod {
+		@include bp($point_1 - 1, min) {
+			color: $color_text_light;
 
-	@include bp($point_1 - 1, min) {
-		color: $color_text_light;
-	}
+			&:hover {
+				color: $color_accent;
+			}
+		}
+	
+		@include bp($point_1) {
+			color: $white;
 
-	@include bp($point_1) {
-		color: $white;
+			&:hover {
+				opacity: .5;
+			}
+		}
 	}
 }
 //--------------------------------------------------------------social###
@@ -221,12 +217,12 @@
 }
 
 .header__search_button {
-	@extend %transition_opacity;
+	@extend %transition_color;
 
 	cursor: pointer;
 	
 	&:hover {
-		opacity: .5;
+		color: $color_accent;
 	}
 
 	@include bp($point_1 - 1, min) {
@@ -370,16 +366,16 @@
 }
 
 .header__language__item--active_mod {
-	font-weight: 800;
+	color: $color_accent;
 }
 
 .header__language__link {
-	@extend %transition_opacity;
+	@extend %transition_color;
 
 	color: inherit;
 
 	&:hover {
-		opacity: .5;
+		color: $color_accent;
 	}
 }
 //--------------------------------------------------------------language###

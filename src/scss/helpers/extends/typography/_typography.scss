@@ -10,17 +10,13 @@
 }
 
 @mixin font_style($font_size: 1.2rem, $font_weight: 500, $line_height: $font_size, $letter_spacing: null) {
-	font-family: 'Apercu-med', sans-serif;
+	font-family: ApercuPro, sans-serif;
 	font-size: $font_size;
 	font-weight: $font_weight;
 	line-height: $line_height;
 	@if $letter_spacing {
 		letter-spacing: $letter_spacing;
 	};
-}
-
-%logo_description {
-	@include font_style(1.4rem, 500, 1.4rem)
 }
 
 %btn_vid_font {

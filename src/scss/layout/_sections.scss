@@ -24,20 +24,17 @@
 	
 	/* ----------- 1200px - 1024px ----------- */
 	@include bp($point_1, $point_2) {
-		$page_width: 92rem;
-		max-width: $page_width;
+		max-width: 92rem;
 	}
 	
 	/* ----------- 1024px - 768px ----------- */
-	@include bp($point_3, $point_4 - 1) { 
-		$page_width: 68.5rem;
-		max-width: $page_width;
+	@include bp($point_3, $point_4 - 1) {  
+		max-width: 68.5rem;
 	}
 	
 	/* ----------- 768px - 480px ----------- */
 	@include bp($point_4, $point_6 - 1) {
-		$page_width: 45rem;
-		max-width: $page_width;
+		max-width: 45rem;
 	}
 	
 	/* ----------- 0 - 480px ----------- */

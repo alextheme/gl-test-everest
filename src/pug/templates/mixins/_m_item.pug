@@ -1,11 +1,12 @@
-mixin grid_item(params)  
+mixin item(params)  
   - 
     resize_mod = params.item_resize.length === 2 ? `grid_item--${params.item_resize[0]} grid_item--${params.item_resize[1]}` : '';
     resize_mod = params.item_resize.length == 1 ? `grid_item--${params.item_resize[0]}` : resize_mod;
 
   .grid_item(class= `grid_item--${params.look_mod} ${resize_mod}` data-item-number= `${params.counter}`)
+
     //- image box
     +image_wrapper(params.item, params.img_mod, params.look_mod)
     
     //- content box
-    +grid_item__content(params)
+    +item_content(params)

@@ -42,63 +42,23 @@
 
 
 //------------------------- buttons
+%btn_standard {
+	@extend %transition_all;
 
-%circle_btn_1 {
-	position: relative;
+	height: 3.8rem;
+	padding: 0 4rem;
+	text-align: center;
+	white-space: nowrap;
 	
-	display: block;
-
-  width: 2rem;
-  height: 2rem;
-
-	&::before {		
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(80%, -50%);
-
-		@include triangle(right, $white, .4rem);	
-	}
-
-  &::after{
-    content: '';
-		position: absolute;
-    top: 0;
-		right: 0;
-
-    width: 100%;
-    height: 100%;
-
-    border-radius: 50%;
-    border: 1.6px solid $white;
-    background-color: transparent;
-  }
-}
-
-%circle_btn_2 {
-	position: relative;
-
-  width: 50px;
-  height: 50px;
-
-  border-radius: 50%;
-  border: none;
-  background-color: $white;
-
-  -webkit-box-shadow: 0px 2px 14px 0px #000000bf;
-  -moz-box-shadow: 0px 2px 14px 0px #000000bf;
-  box-shadow: 0px 2px 14px 0px #000000bf;
-
-	&:before {
-    content: '';
-		position: absolute;
-		right: 50%;
-		top: 50%;
-
-    transform: translate(80%, -50%);
-
-    @include triangle(right, $black, .66rem);	
-	}
+	font-family: "ApercuPro", sans-serif;
+	font-size: 1.4rem;
+	font-weight: 500;
+	line-height: 3.8rem;
+	text-transform: uppercase;
+	
+	border: 1px solid $white;
+	color: $white;
+	background: transparent;
+	cursor: pointer;
 }
 
