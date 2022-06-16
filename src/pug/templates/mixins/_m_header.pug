@@ -1,8 +1,7 @@
 mixin header()
 	header.header
-		.section_in.header_in 	
-
-			a.header__logo_link(href= '#')
+		.section_in.header_in
+			a.header__logo_link.mobile_mod(href= '#')
 				.icon_logo_wrap
 					+icon('logo_header')
 
@@ -31,7 +30,7 @@ mixin header()
 
 				.header__search_wrap 
 					button.header__search_button.btnSearchMob
-						.header__search_icon_wrap
+						span.header__search_icon_wrap
 							+icon('shape')
 					.header__search_input_wrap
 						input.header__search_input(type= 'search' placeholder= 'search text')

@@ -3,13 +3,16 @@ mixin btn_video(item)
     -
       text_btn = item.accent_look && item.link.video ? 'Смотреть' : '';
       button = item.accent_look ? 'text_circle_btn' : item.link.video ? 'circle_btn' : '';
-      href = item.link.video || item.link.img;
+      href = item.link.video || item.link.text || '#';
+    
+    //- TODO: test block
+    //- .test_link!= `${item.link.video ? `<span>video</span> = ${item.link.video}<br>` : ''}${item.link.img ?  `<span>img</span> = ${item.link.img}<br>` : ''}<span>href</span>: ${href}`
       
-    a.grid_item__img_link(class= `${button} ${button ? 'buttonVideo': ''}` href= href)= text_btn
+    a.grid_item__dbl_link(class= `${button} ${button ? 'buttonVideo': 'grid_item__dbl_link--over_img_mod'}` href= href)= text_btn
       if button
           if item.accent_look
-            .grid_item__icon_video_small_wrap
+            span.grid_item__icon_video_small_wrap
               +icon('icon-video-small')
           else 
-            .grid_item__icon_video_wrap
+            span.grid_item__icon_video_wrap
               +icon('icon-video')

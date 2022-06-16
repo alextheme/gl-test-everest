@@ -1,89 +1,88 @@
 mixin footer
 	footer.footer
-		.footer_wrap
-			.footer_in.section_in.m_copyright_mod
-				.footer_container.flex_col_mod
-					a.footer_logo(href= '#')
-						.icon_logo_wrap
-							+icon('logo_footer')
-					.footer_social_wrap
-						.footer_social__title Платформа AI
-						+social({
-							mod_block: 'footer_mod',
-							items: [
-								{ name_icon: 'facebook', mod_icon: '', mod_link: 'footer_mod' },
-								{ name_icon: 'twitter', mod_icon: '', mod_link: 'footer_mod' },
-								{ name_icon: 'rss', mod_icon: '', mod_link: 'footer_mod' },
-								{ name_icon: 'youtube', mod_icon: '', mod_link: 'footer_mod' },
-							]
-						})
-					.footer_copyright.m_copyright_mod
-						span ©
-						span 2020 Everest
-							br
-							| ALL RIGHTS RESERVED
+		.footer_in.section_in.m_copyright_mod
+			.footer_container.flex_col_mod
+				a.footer_logo(href= '#')
+					.icon_logo_wrap
+						+icon('logo_footer')
+				.footer_social_wrap
+					.footer_social__title Платформа AI
+					+social({
+						mod_block: 'footer_mod',
+						items: [
+							{ name_icon: 'facebook', mod_icon: '', mod_link: 'footer_mod' },
+							{ name_icon: 'twitter', mod_icon: '', mod_link: 'footer_mod' },
+							{ name_icon: 'rss', mod_icon: '', mod_link: 'footer_mod' },
+							{ name_icon: 'youtube', mod_icon: '', mod_link: 'footer_mod' },
+						]
+					})
+				.footer_copyright.m_copyright_mod
+					span ©
+					span 2020 Everest
+						br
+						| ALL RIGHTS RESERVED
 				
-				.footer_container.mobile_hidden_mod
-					.footer_menu_wrap 
-						+menu({
-							gl_class: 'footer_menu',
-							gl_mod: '',
-							items: [
-								{ title: 'Кто мы', url: '#', active: false },
-								{ title: 'Что мы делаем', url: '#', active: false },
-								{ title: 'Направления работы', url: '#', active: false },
-								{ title: 'Компетенции', url: '#', active: false },
-								{ title: 'Команда', url: '#', active: false },
-								{ title: 'Новости', url: '#', active: false },
-								{ title: 'Партнеры', url: '#', active: false },
-								{ title: 'Контакты', url: '#', active: false },
-							]
-						})
+			.footer_container.mobile_hidden_mod
+				.footer_menu_wrap 
+					+menu({
+						gl_class: 'footer_menu',
+						gl_mod: '',
+						items: [
+							{ title: 'Кто мы', url: '#', active: false },
+							{ title: 'Что мы делаем', url: '#', active: false },
+							{ title: 'Направления работы', url: '#', active: false },
+							{ title: 'Компетенции', url: '#', active: false },
+							{ title: 'Команда', url: '#', active: false },
+							{ title: 'Новости', url: '#', active: false },
+							{ title: 'Партнеры', url: '#', active: false },
+							{ title: 'Контакты', url: '#', active: false },
+						]
+					})
 
-						ul.footer_menu__list  
-							li.footer_menu__item
-								a.footer_menu__link(href= '#') Аналитика
-							li.footer_menu__item.sub_menu
-								.footer_sub_menu__title Решения:
-								+menu({
-									gl_class: 'footer_sub_menu',
-									items: [
-										{ title: 'Банки', url: '#', active: false },
-										{ title: 'Страхование', url: '#', active: false },
-										{ title: 'Здравоохранение', url: '#', active: false },
-										{ title: 'Транспорт и логистика', url: '#', active: false },
-										{ title: 'Государственный сектор', url: '#', active: false },
-										{ title: 'Ритейл и eCommerce', url: '#', active: false },
-										{ title: 'Телекоммуникации', url: '#', active: false },
-										{ title: 'Телекоммуникации', url: '#', active: false },
-										{ title: 'Телекоммуникации', url: '#', active: false },
-										{ title: 'Телекоммуникации', url: '#', active: false },
-										{ title: 'Телекоммуникации', url: '#', active: false },
-										{ title: 'Телекоммуникации', url: '#', active: false },
-										{ title: 'Телекоммуникации', url: '#', active: false },
-										{ title: 'Телекоммуникации', url: '#', active: false },
-									]
-								})
+					ul.footer_menu__list  
+						li.footer_menu__item
+							a.footer_menu__link(href= '#') Аналитика
+						li.footer_menu__item.sub_menu
+							.footer_sub_menu__title Решения:
+							+menu({
+								gl_class: 'footer_sub_menu',
+								items: [
+									{ title: 'Банки', url: '#', active: false },
+									{ title: 'Страхование', url: '#', active: false },
+									{ title: 'Здравоохранение', url: '#', active: false },
+									{ title: 'Транспорт и логистика', url: '#', active: false },
+									{ title: 'Государственный сектор', url: '#', active: false },
+									{ title: 'Ритейл и eCommerce', url: '#', active: false },
+									{ title: 'Телекоммуникации', url: '#', active: false },
+									{ title: 'Телекоммуникации', url: '#', active: false },
+									{ title: 'Телекоммуникации', url: '#', active: false },
+									{ title: 'Телекоммуникации', url: '#', active: false },
+									{ title: 'Телекоммуникации', url: '#', active: false },
+									{ title: 'Телекоммуникации', url: '#', active: false },
+									{ title: 'Телекоммуникации', url: '#', active: false },
+									{ title: 'Телекоммуникации', url: '#', active: false },
+								]
+							})
 
-				.footer_container.flex_col_mod
-					.footer_about_wrap.mobile_hidden_mod
-						.footer_about__title О нас
-						.footer_about__description 
-							p EVEREST - опытный интегратор digital-технологий, продуктов и сервисов для цифровой трансформации бизнеса, корпоративного и государственного секторов.
-							p Разрабатывает и внедряет решения на базе AI, используя методы Data Data и ML для совершенствования и автоматизации бизнес-процессов клиентов.
-							p Всегда оперирует тенденциями цифрового мира и концентрирует свои усилия на уникальности и инновационности методов в работе с каждым клиентом над созданием и адаптацией digital-идей и концепций.
-					.footer_subscribe_wrap 
-						.footer_subscribe__title Будьте в курсе лучших digital-решений для вашего бизнеса
-						form.footer_subscribe__form(action="get") 
-							.footer_subscribe__controller
-								+form_input({
-									block_class: 'form_input footer_mod',
-									field_class: 'form_input__field footer_mod',
-									class: 'form_input__element footer_mod',
-									type: 'email',
-									placeholder: 'E-mail',
-									value: '',
-									name: 'email',
-									required: true,
-								})
-								button.footer_subscribe__btn.btn_standard(type= 'submit') Подписаться
+			.footer_container.flex_col_mod
+				.footer_about_wrap.mobile_hidden_mod
+					.footer_about__title О нас
+					.footer_about__description 
+						p EVEREST - опытный интегратор digital-технологий, продуктов и сервисов для цифровой трансформации бизнеса, корпоративного и государственного секторов.
+						p Разрабатывает и внедряет решения на базе AI, используя методы Data Data и ML для совершенствования и автоматизации бизнес-процессов клиентов.
+						p Всегда оперирует тенденциями цифрового мира и концентрирует свои усилия на уникальности и инновационности методов в работе с каждым клиентом над созданием и адаптацией digital-идей и концепций.
+				.footer_subscribe_wrap 
+					.footer_subscribe__title Будьте в курсе лучших digital-решений для вашего бизнеса
+					form.footer_subscribe__form(action="get") 
+						.footer_subscribe__controller
+							+form_input({
+								block_class: 'form_input footer_mod',
+								field_class: 'form_input__field footer_mod',
+								class: 'form_input__element footer_mod',
+								type: 'email',
+								placeholder: 'E-mail',
+								value: '',
+								name: 'email',
+								required: true,
+							})
+							button.footer_subscribe__btn.btn_standard(type= 'submit') Подписаться

@@ -128,8 +128,21 @@ $gap_col: 2rem;
   }
 }  
 // ------------------------------------------item###
-// ------------------------------------------ HELP BOX
 
+
+// ------------------------------------------ HELP BOX
+.test_link {
+  position: relative;
+  z-index: 200;
+  font-size: 2rem;
+
+  color: $white;
+  background-color: #1b9681;
+
+  span {
+    color: red;
+  }
+}
 .albor__help_data_box {
   position: absolute;
   top: 0;

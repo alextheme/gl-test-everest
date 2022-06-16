@@ -8,7 +8,6 @@
 
 	height: var(--height-header);
 	width: 100%;
-	padding: 0 var(--gl-indent);
 
 	font-size: 1.2rem;
 
@@ -56,6 +55,12 @@
 		text-transform: uppercase;
 		
 		background-color: $color_text_light;
+	}
+}
+
+.mobile_mod {
+	@include bp($point_1) {
+		margin-left: 3rem; 
 	}
 }
 //--------------------------------------------------------------logo
@@ -246,6 +251,8 @@
 }
 
 .header__search_icon_wrap {
+	display: block;
+	
 	width: 2.2rem;
 	height: 2rem;
 }

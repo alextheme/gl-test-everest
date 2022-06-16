@@ -17,6 +17,9 @@
 	width: 100%;
 	margin: 0 auto;
 
+}
+
+.section_grid {
 	/* ----------- 1200px + ----------- */
 	@include bp($point_1 - 1, min) {
 		max-width: $page_width;

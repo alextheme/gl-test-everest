@@ -1,9 +1,13 @@
 .footer {
 	width: 100%;
 	min-height: var(--height-footer);
+	height: 100%;
+
 	flex: 0 0 auto;
 
 	font-size: 1.2rem;
+
+	padding: 3rem 1rem 4rem;
 
 	will-change: transform;
 
@@ -11,10 +15,6 @@
 }
 
 //----------------------------------------------- grid
-.footer_wrap {
-	padding: 3rem 1rem 4rem;
-} 
-
 .footer_in {
 	position: relative;
 	
@@ -28,6 +28,8 @@
 
 	@include bp($point_1, $point_4 - 1) {
 		grid-template-columns: 25rem 1fr;
+
+		height: calc(var(--height-footer) - 7rem);
 	}
 
 	@include bp($point_4 - 1, $point_6) {
@@ -63,6 +65,8 @@
 //----------------------------------------------- container
 .footer_container.flex_col_mod {
 	@extend %global_flex_block_column_wrap_flex-start;
+
+	height: 100%;
 
 	@include bp($point_6) {
 		justify-content: center;
@@ -319,10 +323,20 @@
 }
 
 .form_input.footer_mod {
-	@include bp($point_4) {
-		width: 100%;
-		margin: 0 auto 2rem;
+	width: 100%;
+
+	@include bp($point_4 - 1, min) {
+		max-width: 20rem;
+	}
+
+	@include bp($point_4, $point_6 - 1) {
+		margin-bottom: 2rem;
+	}
+
+	@include bp($point_6) {
 		max-width: 30rem;
+
+		margin: 0 auto 2rem;
 	}
 }
 

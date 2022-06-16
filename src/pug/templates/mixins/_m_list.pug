@@ -43,7 +43,7 @@ mixin list(data)
         //- image mod
         bg_mod = (item.img && (is_item_size_2 || is_item_size_3)) ? 'bg_mod' : '';
         picture_mod = (item.img && (is_item_size_row || is_item_size_col)) ? 'picture_mod' : '';
-        img_mod = bg_mod || picture_mod;
+        img_mod = item.accent_look && is_item_size_row ? bg_mod : bg_mod || picture_mod;
 
          //- appearance news block
         look_mod = is_item_size_1 ? 'look_1_1_mod' : '';
@@ -56,11 +56,11 @@ mixin list(data)
         //- item header
         item_header_mod = ((is_item_size_1 && item.author) || (is_item_size_row && img_mod && item.author) || (is_item_size_col && item.author) || look_mod == 'look_3_1_mod' || look_mod == 'look_3_2_mod') ? 'col_mod' : 'row_mod';
 
-        //- //- font styles
+        //- font styles
         font_size_mod = (look_mod == 'look_2_3_mod' || look_mod == 'look_2_4_mod' || look_mod == 'look_3_3_mod' || look_mod == 'look_3_4_mod') ? 'font_size_3_mod' : '';
-        font_size_mod = !font_size && (look_mod == 'look_row_2_mod' || look_mod == 'look_col_2_mod' || look_mod == 'look_2_3_mod' || look_mod == 'look_2_4_mod') ? 'font_size_2_mod' : font_size_mod;
-        font_size_mod = !font_size && look_mod == 'look_1_1_mod' ? 'font_size_1L_mod' : font_size_mod;
-        font_size_mod = !font_size ? 'font_size_1_mod' : font_size_mod;
+        font_size_mod = !font_size_mod && (look_mod == 'look_row_2_mod' || look_mod == 'look_col_2_mod' || look_mod == 'look_2_3_mod' || look_mod == 'look_2_4_mod') ? 'font_size_2_mod' : font_size_mod;
+        font_size_mod = !font_size_mod && look_mod == 'look_1_1_mod' ? 'font_size_1L_mod' : font_size_mod;
+        font_size_mod = !font_size_mod ? 'font_size_1_mod' : font_size_mod;
         font_size_mod = item.accent_look ? 'font_size_a_1_mod' : font_size_mod;
 
         //------------------------------------------------------------ mods###

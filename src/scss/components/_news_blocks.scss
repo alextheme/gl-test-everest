@@ -18,14 +18,6 @@
   color: $white;
 }
 
-@mixin position_abs_full_size {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  @include size_full;
-}
-
 @mixin position_abs_bottom {
   position: absolute;
   left: 0;
@@ -67,7 +59,7 @@
 // ------------------------------------------item###
 
 // ------------------------------------------picture
-.grid_item__image_wrap {
+.grid_item__image_wrap--picture_mod {
   position: relative;
 
   height: 100%;
@@ -82,7 +74,23 @@
 }
 
 .grid_item__image_wrap--bg_mod {
-  @include position_abs_full_size;
+  // @extend %stretch;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  @include size_full;
+}
+
+.grid_item__dbl_link--over_img_mod {
+  @extend %transition_background;
+  @extend %stretch;
+  
+  display: block;
+  
+  &:hover {
+    background-color: rgba(#fff, .3);
+  }
 }
 // ------------------------------------------picture###
 
@@ -91,6 +99,18 @@
   margin-bottom: 1.2rem;
 
   color: $color_text_light;
+
+  a {
+    color: inherit;
+  }
+}
+
+.grid_item__author {
+  display: block;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .grid_item__header--row_mod { 
@@ -114,9 +134,11 @@
 
 .grid_item__tag_link {
   display: block;
-  color: inherit;
+
   font-size: inherit;
   line-height: inherit;
+  
+  color: inherit;
 
   @include hover_transition_opacity;
 }

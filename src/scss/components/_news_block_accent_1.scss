@@ -11,7 +11,11 @@
 
 // ---------------------------------------------image
 .grid_item__image_wrap--look_accent_1_mod {
-  @include position_abs_full_size;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  @include size_full;
 }
 
 .grid_item__image_wrap--look_accent_1_mod {
@@ -165,6 +169,8 @@
 }
 
 .grid_item__icon_video_wrap {
+  display: block;
+  
   width: 10rem;
   height: 10rem;
 }
@@ -173,6 +179,8 @@
   position: absolute;
   top: 0;
   right: 0;
+
+  display: block;
 
   width: 2rem;
   height: 2rem;
