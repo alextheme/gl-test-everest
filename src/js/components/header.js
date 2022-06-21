@@ -2,7 +2,7 @@ const header = (vars) => {
 	$(window).on('resize', () => {
 		if ($(window).width() < 1200) return;
 
-		if ($('.header__menu_wrapper').hasClass('mfp-hide')) $('.header__menu_wrapper').removeClass('mfp-hide');
+		if ($('.header__menu').hasClass('mfp-hide')) $('.header__menu').removeClass('mfp-hide');
 		if ($('.header__search_input_wrap').hasClass('mfp-hide')) $('.header__search_input_wrap').removeClass('mfp-hide');
 	});
 
@@ -23,7 +23,7 @@ const header = (vars) => {
 	// button menu
 	$('.menuTrigger').magnificPopup({
 		items: {
-			src: '.header__menu_wrapper',
+			src: '.header__menu',
 			type: 'inline',
 		},
 		alignTop: true,

@@ -1,11 +1,10 @@
 mixin header()
 	header.header
 		.section_in.header_in
-			a.header__logo_link.mobile_mod(href= '#')
-				.icon_logo_wrap
-					+icon('logo_header')
+			a.header__logo_link.header__logo_link--mobile_mod(href= '#')
+				img.header__logo_img(src="images/logo_header.svg", alt="logo")
 
-			.header__menu_wrapper
+			nav.header__menu
 				+menu({
 					gl_class: 'header__menu',
 					items: [
@@ -29,9 +28,9 @@ mixin header()
 				})
 
 				.header__search_wrap 
-					button.header__search_button.btnSearchMob
-						span.header__search_icon_wrap
-							+icon('shape')
+					button.header__search_button.btnSearchMob(type= 'button')
+						+icon('shape', 'header__search_icon--size_mod')
+
 					.header__search_input_wrap
 						input.header__search_input(type= 'search' placeholder= 'search text')
 						.header__search_icon_wrap--input_mod

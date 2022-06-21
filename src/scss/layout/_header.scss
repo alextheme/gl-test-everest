@@ -39,12 +39,30 @@
 	height: 100%;
 }
 
-
 //--------------------------------------------------------------logo
-.header__menu_wrapper {
+.header__logo_link {
+	min-width: 13.6rem;
+	min-height: 4.4rem;
+
+	margin-right: 1rem;
+}
+
+.header__logo_img {
+	@include width_height_full;
+}
+
+.header__logo_link--mobile_mod {
+	@include bp($point_1) {
+		margin-left: 3rem; 
+	}
+}
+//--------------------------------------------------------------logo###
+
+//--------------------------------------------------------------menu
+.header__menu {
 	@extend %global_flex_block_row_wrap_center_center;
 
-	@include width_height_full;
+	margin-left: auto;
 
 	@include bp($point_1) {
 		display: none;
@@ -58,36 +76,12 @@
 	}
 }
 
-.mobile_mod {
-	@include bp($point_1) {
-		margin-left: 3rem; 
-	}
-}
-//--------------------------------------------------------------logo
-
-//--------------------------------------------------------------logo
-.header__logo_link {
-	width: 13.6rem;
-	height: 4.4rem;
-}
-
-.icon_logo_wrap {
-	width: 13.6rem;
-	height: 4.4rem;
-}
-
-.logo_header_icon {
-	@include width_height_full;
-}
-//--------------------------------------------------------------logo###
-
-//--------------------------------------------------------------menu
 .header__menu__list {
 	@extend %global_flex_block_row_nowrap_flex-start_center;
 	
 	@include bp($point_1 - 1, min) {
 		height: 100%;
-		margin-left: auto;
+		
 		margin-right: 2rem;
 		
 		text-transform: uppercase;
@@ -108,7 +102,7 @@
 .header__menu__item {
 	@extend %transition_color;
 
-	height: calc(var(--height-header) / 2);;
+	min-height: calc(var(--height-header) / 2);;
 
 	line-height: calc(var(--height-header) / 2);
 
@@ -250,9 +244,7 @@
 	}
 }
 
-.header__search_icon_wrap {
-	display: block;
-	
+.header__search_icon--size_mod {	
 	width: 2.2rem;
 	height: 2rem;
 }
@@ -313,7 +305,6 @@
 	@extend %global_flex_block_row_nowrap_center_center;
 
 	height: 100%;
-	margin-right: 1rem;
 }
 
 .header__language__list {
@@ -393,7 +384,7 @@
 }
 
 .mfp-content {
-	.header__menu_wrapper {
+	.header__menu {
 		@extend %title_font_2;
 
 		display: block;

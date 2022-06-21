@@ -63,25 +63,22 @@
 // ------------------------------------------content###
 
 // ------------------------------------------item header
+.grid_item__header--look_2_1_mod,
+.grid_item__header--look_2_2_mod {
+  width: 100%;
+  align-items: center;
+  
+  color: $white;
+}
+
 .grid_item__header--look_2_3_mod,
 .grid_item__header--look_2_4_mod {
   margin-bottom: 3rem;
 }
 
-.grid_item__header--look_2_1_mod {
-  align-items: center;
-  
-  width: 100%;
-}
-
 .grid_item__tag_link--look_2_1_mod,
 .grid_item__tag_link--look_2_2_mod {
   @include tag_bg;
-}
-
-.grid_item__author--look_2_1_mod,
-.grid_item__author--look_2_2_mod {
-  color: $white;
 }
 
 .grid_item--look_2_1_mod,

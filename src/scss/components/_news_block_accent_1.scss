@@ -154,12 +154,13 @@
 
 .circle_btn {
   @extend %transition_all;	
-  @extend %hor_vert_centr;
+  @extend %global_flex_block_row_wrap_center_center;
   
   position: absolute;
   z-index: 10;
   
-  display: block;
+  width: 100%;
+  height: 100%;
 
   color: $white;
 
