@@ -1,3 +1,166 @@
 .btn_standard {
   @extend %btn_standard;
 }
+
+//---------------------------------------------menu trigger
+$grey: #808080;
+
+@mixin menu_butt_line {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: .16rem;
+	background: $grey;
+}
+
+.header__menu_trigger_btn {
+	width: var(--height-header);
+	height: var(--height-header);
+
+  margin-left: auto;
+
+	cursor: pointer;
+
+	&.active_mod {
+		margin-top: 1rem;
+		margin-right: 1rem;
+	}
+
+	@include bp($point_1, min) {
+		display: none;
+	}
+}
+
+.header__menu_trigger_icon_w {
+	position: relative;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 100%;
+	height: 100%;
+}
+
+.menu_trigger_icon {
+	position: relative;
+	z-index: 100;
+
+	height: 1.6rem;
+	width: 2rem;
+
+	color: $grey;
+
+	&:before {
+		content: '';
+		top: 0;
+
+		transition: all .3s ease;
+
+		@include menu_butt_line;
+	}
+
+	&:after {
+		content: '';
+		bottom: 0;
+
+		transition: all .3s ease;
+
+		@include menu_butt_line;
+	}
+
+	.active_mod & {
+		$translate_offset: .59rem;
+		
+		height: 2rem;
+
+		&:before {
+			height: .3rem;
+			transform: rotate(45deg) translate($translate_offset, $translate_offset);
+			background: $body_bg;
+		}
+
+		&:after {
+			height: .3rem;
+			transform: rotate(-45deg) translate($translate_offset, -$translate_offset);
+			background: $body_bg;
+		}
+
+		.menu_trigger_decor {
+			opacity: 0;
+		}
+	}
+
+	@include bp($point_1, min) {
+		display: none;
+	}
+}
+
+.menu_trigger_decor {
+	top: 50%;
+
+	transform: translate(0, -50%);
+	transition: all .3s ease;
+
+	@include menu_butt_line;
+}
+//---------------------------------------------menu trigger###
+
+// ------------------------------------------button
+.text_circle_btn {
+  @extend %transition_all;	
+  
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  
+  display: block;
+
+  width: 8rem;
+  height: 2em;
+  line-height: 2rem;
+
+  color: $white;
+  stroke: $white;
+
+  &:hover {    
+		color: $color_accent;
+		stroke: $color_accent;
+	}
+}
+
+.circle_btn {
+  @extend %transition_all;	
+  @extend %global_flex_block_row_wrap_center_center;
+  
+  position: absolute;
+  z-index: 10;
+  
+  width: 100%;
+  height: 100%;
+
+  color: $white;
+
+  &:hover {    
+		color: $color_accent;
+	}
+}
+
+.grid_item__icon_video_wrap {
+  display: block;
+  
+  width: 10rem;
+  height: 10rem;
+}
+
+.grid_item__icon_video_small_wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: block;
+
+  width: 2rem;
+  height: 2rem;
+}
+// ------------------------------------------button###

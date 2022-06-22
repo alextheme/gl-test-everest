@@ -320,3 +320,15 @@
 @function order-index($i, $index) {
   @return ($index + $i);
 }
+
+/// albor edit
+/// Select children each `$num`, counting from `$start`
+/// @group with-arguments
+/// @content [Write the style you want to apply to the children, and it will be added within the @content directive]
+/// @param {number} $offset - start number of children
+/// @param {number} $each - id of the child
+@mixin offset-each($offset, $each: 19) {
+  &:nth-child(#{$each}n + #{$offset}) {
+    @content;
+  }
+}

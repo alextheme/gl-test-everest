@@ -1,0 +1,896 @@
+// ------------------------------------------mixins
+@mixin size_full {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin tag_bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 12rem;
+  width: fit-content;
+  height: 2rem;
+  padding: 0.6rem 1rem;
+  
+  background-color: $t_clr3;
+  color: $white;
+}
+
+@mixin position_abs_bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+@mixin hover_transition_opacity {
+  @extend %transition_opacity;
+
+  &:hover {
+    opacity: .5;
+  }
+}
+
+@mixin img_wrapper_style {
+  display: block;
+
+  min-width: $width_item_grid;
+  width: 100%;
+  height: $height_item_grid;
+}
+
+@mixin height_auto_content_pic_img{
+  .grid_item__content_wrap,
+  .grid_item__picture_wrap,
+  .grid_item__image_wrap  {
+    height: auto;
+  }
+}
+
+@mixin grid_item_block_height_auto {
+  display: block;
+
+  height: auto;
+}
+// ------------------------------------------mixins###
+
+// ------------------------------------------item
+.grid_item {
+  position: relative;
+
+  background-color: $item_grid_bg;
+
+  width: 100%;
+  height: 100%;
+
+  &.grid_item--look_accent_1_mod {
+    grid-column-end: span 2;
+    grid-row-end: span 1;
+  
+    @include bp($point_6) {
+      background: $color_text_light;
+    }
+  }
+
+  &.grid_item--look_col_1_mod,
+  &.grid_item--look_col_2_mod,
+  &.grid_item--look_col_3_mod {
+    grid-column-end: span 1;
+    grid-row-end: span 2;
+  }
+
+  &.grid_item--look_2_1_mod,
+  &.grid_item--look_2_2_mod,
+  &.grid_item--look_2_3_mod,
+  &.grid_item--look_2_4_mod {
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+
+    
+    @include bp($point_6) { // 0 - 480px 
+      display: block;
+      margin-bottom: 2rem;
+      height: 55rem;
+    }
+  }
+
+  &.grid_item--look_3_1_mod,
+  &.grid_item--look_3_2_mod,
+  &.grid_item--look_3_3_mod,
+  &.grid_item--look_3_4_mod {
+    grid-column-end: span 3;
+    grid-row-end: span 2;
+
+    @include bp($point_3, $point_6 - 1) {
+      grid-row-end: span 2;
+      grid-column-end: span 2;
+    }
+  }
+
+  &.grid_item--look_row_1_mod,
+  &.grid_item--look_row_2_mod,
+  &.grid_item--look_row_3_mod {
+    grid-column-end: span 2;
+    grid-row-end: span 1;
+
+    @include bp($point_6) { // 0 - 480px 
+      @include grid_item_block_height_auto;  
+      @include height_auto_content_pic_img;
+    }
+  }
+
+  &.grid_item--look_row_1_mod {
+    @include bp($point_4 - 1, min) { // max - 768px 
+      display: flex;
+    }
+
+    @include bp($point_4) { // 0 - 768px 
+      display: block;
+    }
+  }
+
+  /* ----------- 0 - 480px ----------- */
+  @include bp($point_6) {
+    margin-bottom: 2rem;
+  }
+}
+// ------------------------------------------item###
+
+// ------------------------------------------picture
+.grid_item__image_wrap {
+
+  .grid_item--look_1_1_mod & {
+    display: none;
+  }
+
+  .grid_item--picture_mod & {
+    position: relative;
+  }
+
+  .grid_item--bg_mod & {
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    @include size_full;
+  }
+
+  .grid_item--look_col_1_mod & {
+    display: block;
+    min-width: 21.5rem;
+    width: 100%;
+    height: 24rem;
+  }
+
+  .grid_item--look_row_1_mod & {
+    @include img_wrapper_style;
+  }
+
+  .grid_item--look_accent_1_mod & {
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    @include size_full;
+  }
+  
+  .grid_item--look_accent_1_mod & {
+    @include bp($point_6) {
+      top: 50%;
+      height: auto;
+      transform: translate(0, -50%);
+    }
+  }
+}
+
+.grid_item__picture {
+  object-fit: cover;
+}
+
+.grid_item__picture_wrap,
+.grid_item__picture {
+  display: block;
+  
+  width: 100%;
+  height: 100%;
+}
+
+.grid_item__dbl_link--over_img_mod {
+  @extend %transition_background;
+  @extend %stretch;
+  
+  display: block;
+  
+  &:hover {
+    background-color: rgba(#fff, .3);
+  }
+}
+// ------------------------------------------picture###
+
+// ------------------------------------------content
+.grid_item__content_wrap {
+  .grid_item--look_1_1_mod & {
+    padding: 1.4rem 1.4rem;
+  
+    @include size_full;
+  }
+
+  .grid_item--look_2_1_mod &,
+  .grid_item--look_2_2_mod &,
+  .grid_item--look_2_3_mod &,
+  .grid_item--look_2_4_mod & {
+    padding: 1.4rem 2.2rem;
+
+    @include size_full;
+  }
+
+  .grid_item--look_3_1_mod &,
+  .grid_item--look_3_2_mod & {
+    padding: 2.2rem 2.2rem 1.4rem;
+
+    @include size_full;
+  }
+
+  .grid_item--look_3_3_mod &,
+  .grid_item--look_3_4_mod & {
+    padding: 1.4rem 2.2rem;
+
+    @include size_full;
+  }
+
+  .grid_item--look_accent_1_mod & {
+    padding: 1.4rem;
+      
+    @include size_full;
+  }
+
+  .grid_item--look_col_1_mod & {
+    padding: 1.8rem 1.4rem 1.4rem;
+  
+    width: 100%;
+    height: calc($height_item_grid + $gap_row);
+  }
+  
+  .grid_item--look_col_2_mod &,
+  .grid_item--look_col_3_mod & {
+    padding: 1.4rem;
+  
+    @include size_full;
+  }
+
+  .grid_item--look_row_1_mod & {
+    padding: 1.4rem 1.4rem 1.4rem 2rem;
+  
+    @include size_full;
+  }
+  
+  .grid_item--look_row_2_mod &,
+  .grid_item--look_row_3_mod & {
+    padding: 1.4rem;
+  
+    @include size_full;
+  }
+}
+
+.grid_item__content {
+  .grid_item--look_1_1_mod & {  
+    position: relative;
+  
+    padding-bottom: 3rem;
+  
+    @include size_full;
+  }
+
+  .grid_item--look_2_1_mod &, 
+  .grid_item--look_2_2_mod &, 
+  .grid_item--look_2_3_mod &, 
+  .grid_item--look_2_4_mod & { 
+    position: relative;
+
+    padding-bottom: 3rem;
+
+    @include size_full;
+  }
+
+  .grid_item--look_3_1_mod &,  
+  .grid_item--look_3_2_mod & {
+    @extend %global_flex_block_column_nowrap_flex-end;
+
+    position: relative;
+
+    padding-bottom: 3rem;
+
+    @include size_full;
+  }
+
+  .grid_item--look_3_3_mod &,  
+  .grid_item--look_3_4_mod & {  
+    position: relative;
+
+    padding-bottom: 4rem;
+
+    @include size_full;
+  }
+
+  .grid_item--look_accent_1_mod & {
+    position: relative;
+  
+    padding: 3rem 0;
+  
+    @include size_full;
+  }
+
+  .grid_item--look_col_1_mod &, 
+  .grid_item--look_col_2_mod &, 
+  .grid_item--look_col_3_mod & { 
+    position: relative;
+
+    padding-bottom: 3rem;
+
+    @include size_full;
+  }
+
+  .grid_item--look_row_1_mod &, 
+  .grid_item--look_row_2_mod &, 
+  .grid_item--look_row_3_mod & { 
+    position: relative;
+
+    padding-bottom: 3rem;
+
+    @include size_full;
+  }
+}
+
+.grid_item__content_in {
+  .grid_item--look_1_1_mod & {
+    overflow: hidden;
+  
+    @include size_full;
+  }
+
+  .grid_item--look_2_1_mod &,
+  .grid_item--look_2_2_mod & {
+    @extend %global_flex_block_column_wrap_flex-end;
+    
+    overflow: hidden;
+
+    @include size_full;
+  }
+
+  .grid_item--look_2_3_mod &,
+  .grid_item--look_2_4_mod & {
+    overflow: hidden;
+
+    @include size_full;
+  }
+
+  .grid_item--look_3_1_mod &,
+  .grid_item--look_3_2_mod & {
+    overflow: hidden;
+
+    width: 100%;
+  }
+
+  .grid_item--look_3_3_mod &,
+  .grid_item--look_3_4_mod & {
+    overflow: hidden;
+
+    @include size_full;
+  }
+
+  .grid_item--look_accent_1_mod & {  
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2.4rem;
+    justify-items: center;
+    align-items: flex-end;
+  
+    width: min-content;
+    height: 100%;
+    margin-left: auto;
+    
+    overflow: hidden;
+  }
+
+  .grid_item--look_col_1_mod &,
+  .grid_item--look_col_2_mod &,
+  .grid_item--look_col_3_mod & {
+    overflow: hidden;
+
+    @include size_full;
+
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .grid_item--look_row_1_mod &,
+  .grid_item--look_row_2_mod &,
+  .grid_item--look_row_3_mod & {
+    overflow: hidden;
+
+    @include size_full;
+  }
+}
+// ------------------------------------------content###
+
+// ------------------------------------------mark
+.grid_item__mark {
+  .grid_item--look_accent_1_mod & {
+    @extend %title_font_1L;
+    
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+    text-transform: uppercase;
+    
+    color: $white;
+  }
+}
+// ------------------------------------------mark###
+
+// ------------------------------------------item header
+.grid_item__header { 
+  margin-bottom: 1.2rem;
+
+  color: $color_text_light;
+
+  a { color: inherit; }
+
+  .grid_item--look_2_1_mod &,
+  .grid_item--look_2_2_mod & {
+    width: 100%;
+    align-items: center;
+    
+    color: $white;
+  }
+
+  .grid_item--look_2_3_mod &,
+  .grid_item--look_2_4_mod & {
+    margin-bottom: 3rem;
+  }
+
+  .grid_item--look_2_1_mod.grid_item--item_header_row_mod &,
+  .grid_item--look_2_2_mod.grid_item--item_header_row_mod & {
+    width: 100%;
+  }
+
+  .grid_item--look_3_1_mod &,
+  .grid_item--look_3_2_mod & {
+    color: $white;
+  }
+
+  .grid_item--look_3_3_mod &,
+  .grid_item--look_3_4_mod & {
+    margin-bottom: 3rem;
+  }
+  
+  .grid_item--item_header_row_mod & { 
+    display: flex;
+  }
+  
+  .grid_item--item_header_col_mod & {
+    .grid_item__tag_link {  
+      margin-bottom: 1rem;
+    }
+  }
+}
+// ------------------------------------------item header###
+
+// ------------------------------------------tag
+.grid_item__tag_link {
+  display: block;
+
+  font-size: inherit;
+  line-height: inherit;
+  
+  color: inherit;
+
+  @include hover_transition_opacity;
+
+  .grid_item--item_header_row_mod & {
+    margin-right: 1rem;
+  }
+
+  .grid_item--look_2_1_mod &,
+  .grid_item--look_2_2_mod & {
+    @include tag_bg;
+  }
+
+  .grid_item--look_3_1_mod &,
+  .grid_item--look_3_2_mod & {
+    @include tag_bg;
+  }
+
+  .grid_item--look_accent_1_mod & {
+    display: none;
+  }
+
+  .grid_item--color_tag_0_mod & { color: $t_clr0 }
+  .grid_item--color_tag_1_mod & { color: $t_clr1 }  
+  .grid_item--color_tag_2_mod & { color: $t_clr2 }
+  .grid_item--color_tag_3_mod & { color: $t_clr3 }
+  .grid_item--color_tag_4_mod & { color: $t_clr4 }
+  .grid_item--color_tag_5_mod & { color: $t_clr5 }
+  .grid_item--color_tag_6_mod & { color: $t_clr6 }
+  .grid_item--color_tag_7_mod & { color: $t_clr7 }
+
+  .grid_item--look_2_1_mod &,
+  .grid_item--look_2_2_mod &,
+  .grid_item--look_3_1_mod &,
+  .grid_item--look_3_2_mod & {
+    color: $white;
+  }
+}
+
+.grid_item__icon_tagging_w { 
+  width: 7px;
+  height: 15px;
+  margin-left: auto;
+}
+// ------------------------------------------tag###
+
+// ------------------------------------------author
+.grid_item__author {
+  display: block;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  .grid_item--item_header_row_mod & {
+    margin-left: auto;
+  }
+
+  .grid_item--item_header_col_mod & {
+    width: min-content;
+    line-height: 1.8rem;
+  }
+
+  .grid_item--look_accent_1_mod & {
+    order: 1;
+  
+    width: max-content;
+    padding: 0 1rem;
+  
+    line-height: 2.4rem;
+  
+    color: $white;
+    border: 1px solid $white;
+  }
+}
+// ------------------------------------------author###
+
+// ------------------------------------------item title
+.grid_item__title {
+  @include hover_transition_opacity;
+
+  .grid_item--font_size_1_mod & {
+    @extend %title_font_1;
+  }
+  
+  .grid_item--font_size_1L_mod & {
+    @extend %title_font_1L;
+  }
+  
+  .grid_item--font_size_a_1_mod & {
+    @extend %title_accent_font;
+  }
+  
+  .grid_item--font_size_2_mod & {
+    @extend %title_font_2;
+  }
+  
+  .grid_item--font_size_3_mod & {
+    @extend %title_font_3;
+  }
+
+  .grid_item--look_1_1_mod & {
+    margin-bottom: 2rem;
+  }
+
+  .grid_item--look_2_1_mod &,
+  .grid_item--look_2_2_mod & {
+    margin-bottom: 2rem;
+
+    color: $white;
+  }
+
+  .grid_item--look_2_3_mod & {
+    margin-bottom: 3rem;
+  }
+
+  .grid_item--look_2_4_mod & {
+    margin-bottom: 3rem;
+
+    @include bp($point_1, $point_2) {
+      font-size: 3.2rem;
+      line-height: 3.8rem;
+    }
+  }
+
+  .grid_item--look_3_1_mod &,
+  .grid_item--look_3_2_mod & {
+    margin-bottom: 2rem;
+
+    text-transform: uppercase;
+
+    color: $white;
+  }
+
+  .grid_item--look_3_3_mod & {
+    margin-bottom: 3rem;
+  }
+
+  .grid_item--look_accent_1_mod & {
+    margin-bottom: 1rem;
+    
+    text-align: center;
+    text-transform: uppercase;
+  
+    color: $color_link_base;
+  
+    .word {
+      width: fit-content;
+      padding: .4rem;
+      margin: 0 auto;
+  
+      background-color: $white;
+      margin-bottom: .24rem;
+    }
+  
+    .word--accent_mod  {
+      color: $color_accent;
+    }
+  }
+
+  .grid_item--look_col_3_mod & {
+    margin-bottom: 2rem;
+  }
+
+  .grid_item--look_row_3_mod & {
+    margin-bottom: 2rem;
+  }
+
+
+}
+
+.grid_item__link {
+  color: inherit;
+}
+// ------------------------------------------item title###
+
+// ------------------------------------------description
+.grid_item__descr {
+  .grid_item--look_1_1_mod & {
+    display: none;
+  }
+
+  .grid_item--look_2_1_mod & {
+    color: $white;
+  }
+
+  .grid_item--look_3_1_mod &,
+  .grid_item--look_3_2_mod & {
+    margin-bottom: 2rem;
+
+    color: $white;
+  }
+
+  .grid_item--look_accent_1_mod & {
+    display: none;
+  }
+
+  .grid_item--look_row_1_mod & {
+    display: none;
+  }
+}
+// ------------------------------------------description###
+
+// ------------------------------------------item date
+.grid_item__date_wrap {
+  color: $color_text_light;
+
+  .grid_item--look_1_1_mod & {  
+    @include position_abs_bottom;
+  
+    display: flex;
+    
+    width: 100%;
+  }
+
+  .grid_item--look_2_1_mod &,  
+  .grid_item--look_2_2_mod &, 
+  .grid_item--look_2_4_mod & {  
+    @include position_abs_bottom;
+
+    display: flex;
+
+    width: 100%;
+    
+    color: $white;
+  }
+
+  .grid_item--look_2_3_mod & {  
+    @include position_abs_bottom;
+
+    display: flex;
+
+    width: 100%;
+  }
+
+  .grid_item--look_3_1_mod &,
+  .grid_item--look_3_2_mod & {
+    color: $white;
+  }
+
+  .grid_item--look_3_1_mod &,
+  .grid_item--look_3_2_mod &,
+  .grid_item--look_3_3_mod &,  
+  .grid_item--look_3_4_mod & {  
+    @include position_abs_bottom;
+
+    display: flex;
+    
+    width: 100%;
+  }
+
+  .grid_item--look_accent_1_mod & {
+    display: none;
+  }
+
+  .grid_item--look_col_1_mod &,  
+  .grid_item--look_col_2_mod &, 
+  .grid_item--look_col_3_mod & {  
+    @include position_abs_bottom;
+
+    display: flex;
+    
+    width: 100%;
+  }
+
+  .grid_item--look_row_1_mod &,  
+  .grid_item--look_row_2_mod &, 
+  .grid_item--look_row_3_mod & {  
+    @include position_abs_bottom;
+
+    display: flex;
+    
+    width: 100%;
+  }
+}
+
+.grid_item__time {
+  margin-left: auto;
+}
+// ------------------------------------------item date###
+
+// ------------------------------------------resize
+@mixin title_font_size_2 {
+  font-size: 2.2rem;
+  line-height: 2.8rem;
+}
+
+@mixin resize_style_1 {
+  display: flex;
+  
+  .grid_item__content {
+    padding-bottom: 2.2rem;
+  }
+   
+  .grid_item__content_wrap {
+    height: $height_item_grid;
+  }
+}
+
+@mixin to_row {
+  grid-row-end: span 1;
+  grid-column-end: span 2; 
+}
+
+@mixin to_column {
+  grid-row-end: span 2;
+  grid-column-end: span 1; 
+}
+
+@mixin to_big {
+  grid-row-end: span 2;
+  grid-column-end: span 2; 
+}
+
+.grid_item {
+  // ROW to COLUMN
+  &.grid_item--resize_row_to_col {
+    @include bp($point_3, $point_4 - 1) {
+      display: block;
+
+      @include to_column;
+
+      .grid_item__image_wrap {
+        @include img_wrapper_style;
+      }
+
+      .grid_item__content_wrap.grid_item__content_wrap--picture_mod {
+        height: 26rem;
+      }
+    }
+  }
+
+    // ROW to ROW
+    &.grid_item--resize_row_to_row {
+      @include bp($point_3, $point_4 - 1) {
+        @include to_row; 
+        @include resize_style_1;
+      }
+    }
+
+  // COLUMN to ROW
+  &.grid_item--resize_col_to_row {    
+    @include bp($point_1, $point_2) {
+      @include to_row;
+      @include resize_style_1;
+    }
+
+    @include bp($point_4, $point_6 - 1) {
+      @include to_row;
+      @include resize_style_1;
+    }
+  }
+
+  // MIN to ROW
+  &.grid_item--resize_min_to_row {
+    @include bp($point_1, $point_2) {
+      @include to_row;
+
+      .grid_item__title  {
+        @include title_font_size_2;
+      }
+    }
+
+    @include bp($point_4, $point_6 - 1) {
+      @include to_row;
+
+      .grid_item__title  {
+        @include title_font_size_2;
+      }
+    }
+  }
+
+  // MIN to COLUMN
+  &.grid_item--resize_min_to_col {
+    @include bp($point_3, $point_4 - 1) {
+      @include to_column; 
+
+      .grid_item__title  {
+        @include title_font_size_2;
+      }
+    }
+  }
+}
+// ------------------------------------------resize###
+
+
+
+
+
+
+
+// ------------------------------------------helper block
+.helper_block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 2px 5px;
+  font-size: 2rem;
+
+  &.accent {
+    background: red;
+  }
+}
+// ------------------------------------------helper block###

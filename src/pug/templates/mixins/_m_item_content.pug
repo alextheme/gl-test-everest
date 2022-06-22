@@ -1,38 +1,38 @@
 mixin item_content(params)
-  .grid_item__content_wrap(class= `grid_item__content_wrap--${params.look_mod} grid_item__content_wrap--${params.img_mod}`)
-    .grid_item__content(class= `grid_item__content--${params.look_mod}`)
-      .grid_item__content_in(class= `grid_item__content_in--${params.look_mod}`)
+  .grid_item__content_wrap
+    .grid_item__content
+      .grid_item__content_in
 
         if params.item.accent_look
           +btn_video(params.item)
         
         //- mark
         if params.item.mark
-          span.grid_item__mark(class= `grid_item__mark--${params.look_mod}`)= params.item.mark
+          span.grid_item__mark= params.item.mark
       
         //- item header
         if params.item.accent_look
-          a.grid_item__author(class= `grid_item__author--${params.look_mod}` href= '#')= (params.item.accent_look ? params.item.author : params.word_author + params.item.author)
+          a.grid_item__author(href= '#')= params.item.author
         else 
-          .grid_item__header(class= `grid_item__header--${params.item_header_mod} grid_item__header--${params.look_mod}`)
-            a.grid_item__tag_link(class= `grid_item__tag_link--${params.color_tag_mod} grid_item__tag_link--${params.look_mod}` href='#')= params.item.tag
+          .grid_item__header
+            a.grid_item__tag_link(href='#')= params.item.tag
 
             if params.item.author
-              a.grid_item__author(class= `grid_item__author--${params.look_mod}` href= '#')= (params.item.accent_look ? params.item.author : params.word_author + params.item.author)
+              a.grid_item__author(href= '#')= params.word_author + params.item.author
             else if params.look_mod == 'look_1_1_mod'
               span.grid_item__icon_tagging_w
                 +icon('icon_tagging', 'icon_tagging')
             
         //- title
         - link = params.item.link && params.item.link.text ? params.item.link.text : '#';
-        h3.grid_item__title(class= `grid_item__title--${params.font_size_mod} grid_item__title--${params.look_mod}` )
-          a.grid_item__link(href= link class= `${params.item.accent_look ? 'js-grid_item__title_link' : ''}`)!= params.item.title
+        h3.grid_item__title
+          a.grid_item__link(class= `${params.item.accent_look ? 'js-grid_item__title_link' : ''}`)!= params.item.title
         
         //- description
-        .grid_item__descr(class= `grid_item__descr--${params.look_mod}`)= params.item.descr
+        .grid_item__descr= params.item.descr
         
         //- date
         if params.item.date
-          .grid_item__date_wrap(class= `grid_item__date_wrap--${params.look_mod}`)
+          .grid_item__date_wrap
             .grid_item__date= params.item.date
             .grid_item__time= params.item.time

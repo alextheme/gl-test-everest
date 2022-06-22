@@ -1,12 +1,28 @@
 mixin item(params)  
   - 
-    resize_mod = params.item_resize.length === 2 ? `grid_item--${params.item_resize[0]} grid_item--${params.item_resize[1]}` : '';
-    resize_mod = params.item_resize.length == 1 ? `grid_item--${params.item_resize[0]}` : resize_mod;
+    resize_mod = '';     
+    for (var i = 0; i < params.item_resize.length; i++)
+      resize_mod += `grid_item--${params.item_resize[i]} `
 
-  li.grid_item(class= `grid_item--${params.look_mod} ${resize_mod}` data-item-number= `${params.counter}`)
+    img_mod = img_mod ? `grid_item--${img_mod}` : '';
+
+  li.grid_item(data-item-number= `${params.counter}` class= `
+    grid_item--${params.look_mod}
+    grid_item--${params.item_header_mod}
+    grid_item--${params.color_tag_mod}
+    grid_item--${params.font_size_mod}
+    ${resize_mod}
+    ${img_mod}`)
+    
+    //- help block
+    .helper_block(class= `${params.item_resize.length >= 1 ? 'accent' : ''}`)= params.look_mod.slice(5, -4)
+      .count= params.counter
+      .resize_class= params.item_resize[0]
+      .resize_class= params.item_resize[1]
+      .resize_class= params.item_resize[2]
 
     //- image box
-    +image_wrapper(params.item, params.img_mod, params.look_mod)
+    +image_wrapper(params.item)
     
     //- content box
     +item_content(params)

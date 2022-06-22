@@ -14,12 +14,5 @@
 // plugins
 @import "plugins/magnific-popup.css";
 // components
-@import "components/news_grid.scss";
-@import "components/news_blocks";
-@import "components/news_block_1";
-@import "components/news_block_2";
-@import "components/news_block_3";
-@import "components/news_block_row";
-@import "components/news_block_col";
-@import "components/news_block_accent_1";
-@import "components/menu_trigger_button";
+@import "components/news_grid";
+@import "components/news_grid_item";

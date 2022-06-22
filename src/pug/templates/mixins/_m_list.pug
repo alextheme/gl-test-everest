@@ -11,7 +11,7 @@
     'resize_row_to_col': [16, 22, 25],
     'resize_min_to_row': [24, 26],
     'resize_min_to_col': [24, 26],
-    'resize_col_to_big': [30],
+    'resize_row_to_row': [25],
   };
 
   default_size = '1';
@@ -27,42 +27,103 @@ mixin list(data)
         item_size = Object.keys(size_mods).find(key => size_mods[key].includes(number_item)) || default_size;
         item_resize = Object.keys(resize_mods).filter(key => resize_mods[key].includes(number_item)) || null;
 
-        is_item_size_1 = item_size === '1';
-        is_item_size_2 = item_size === '2';
-        is_item_size_3 = item_size === '3';
-        is_item_size_row = item_size === 'row';
-        is_item_size_col = item_size === 'col';
-
         word_author = `Автор:\u00A0`;
         //------------------------------------------------------------ help variables###
 
         //------------------------------------------------------------ mods
         //- tag color
-        color_tag_mod = `color_${number_item % 8}_mod`;
+        color_tag_mod = `color_tag_${number_item % 8}_mod`;
 
         //- image mod
-        bg_mod = (item.img && (is_item_size_2 || is_item_size_3)) ? 'bg_mod' : '';
-        picture_mod = (item.img && (is_item_size_row || is_item_size_col)) ? 'picture_mod' : '';
-        img_mod = item.accent_look && is_item_size_row ? bg_mod : bg_mod || picture_mod;
-
+        img_mod = '';
+        if (item.img)
+          if ((item_size === '2' || item_size === '3') || (item.accent_look && item_size === 'row'))
+            img_mod = 'bg_mod'
+          else
+            img_mod = 'picture_mod'
+        
          //- appearance news block
-        look_mod = is_item_size_1 ? 'look_1_1_mod' : '';
-        look_mod = !look_mod && is_item_size_row ? (item.img ? 'look_row_1_mod' : (item.descr ? 'look_row_3_mod' : 'look_row_2_mod')) : look_mod;
-        look_mod = !look_mod && is_item_size_col ? (item.img ? 'look_col_1_mod' : (item.descr ? 'look_col_3_mod' : 'look_col_2_mod')) : look_mod;
-        look_mod = !look_mod && is_item_size_2 ? (bg_mod ? (item.descr ? 'look_2_1_mod' : 'look_2_2_mod') : (item.descr ? 'look_2_3_mod' : 'look_2_4_mod')) : look_mod;
-        look_mod = !look_mod && is_item_size_3 ? (bg_mod ? (item.descr ? 'look_3_1_mod' : 'look_3_2_mod') : (item.descr ? 'look_3_3_mod' : 'look_3_4_mod')) : look_mod;
-        look_mod = item.accent_look && is_item_size_row ? `look_${item.accent_look}_mod` : look_mod;
+        //- size 1x1
+        look_mod = '';
+        if (item_size === '1') 
+          look_mod = 'look_1_1_mod'
+
+        //- row
+        if (item_size === 'row')
+          if (item.img)
+            look_mod = 'look_row_1_mod'
+          else 
+            if (item.descr)
+              look_mod = 'look_row_3_mod'
+            else
+              look_mod = 'look_row_2_mod'
+
+        //- column
+        if (item_size === 'col')
+          if (item.img)
+            look_mod = 'look_col_1_mod'
+          else
+            if (item.descr)
+              look_mod = 'look_col_3_mod'
+            else
+              look_mod = 'look_col_2_mod'
+
+        //- size 2x2
+        if (item_size === '2')
+          if (img_mod === 'bg_mod')
+            if (item.descr)
+              look_mod = 'look_2_1_mod'
+            else
+              look_mod = 'look_2_2_mod'
+          else 
+            if (item.descr)
+              look_mod = 'look_2_3_mod'
+            else
+              look_mod = 'look_2_4_mod'
+
+        //- size 3x2
+        if (item_size === '3')
+          if (img_mod === 'bg_mod')
+            if (item.descr)
+              look_mod = 'look_3_1_mod'
+            else
+              look_mod = 'look_3_2_mod'
+          else 
+            if (item.descr)
+              look_mod = 'look_3_3_mod'
+            else
+              look_mod = 'look_3_4_mod'
+
+        //- accent style
+        if (item.accent_look && item_size === 'row')
+          look_mod = `look_${item.accent_look}_mod`
 
         //- item header
-        item_header_mod = ((is_item_size_1 && item.author) || (is_item_size_row && img_mod && item.author) || (is_item_size_col && item.author) || look_mod == 'look_3_1_mod' || look_mod == 'look_3_2_mod') ? 'col_mod' : 'row_mod';
+        item_header_mod = '';
+        if ( (item_size === '1' && item.author) 
+          || (item_size === 'row' && img_mod && item.author) 
+          || (item_size === 'col' && item.author) 
+          || look_mod == 'look_3_1_mod' 
+          || look_mod == 'look_3_2_mod')
+
+          item_header_mod = 'item_header_col_mod'
+        else
+          item_header_mod = 'item_header_row_mod'
 
         //- font styles
-        font_size_mod = (look_mod == 'look_2_3_mod' || look_mod == 'look_2_4_mod' || look_mod == 'look_3_3_mod' || look_mod == 'look_3_4_mod') ? 'font_size_3_mod' : '';
-        font_size_mod = !font_size_mod && (look_mod == 'look_row_2_mod' || look_mod == 'look_col_2_mod' || look_mod == 'look_2_3_mod' || look_mod == 'look_2_4_mod') ? 'font_size_2_mod' : font_size_mod;
-        font_size_mod = !font_size_mod && look_mod == 'look_1_1_mod' ? 'font_size_1L_mod' : font_size_mod;
-        font_size_mod = !font_size_mod ? 'font_size_1_mod' : font_size_mod;
-        font_size_mod = item.accent_look ? 'font_size_a_1_mod' : font_size_mod;
-
+        font_size_mod = 'font_size_1_mod';
+        if (look_mod == 'look_2_3_mod' || look_mod == 'look_2_4_mod' || look_mod == 'look_3_3_mod' || look_mod == 'look_3_4_mod')
+          font_size_mod = 'font_size_3_mod'
+        
+        if (look_mod == 'look_row_2_mod' || look_mod == 'look_col_2_mod' || look_mod == 'look_2_3_mod' || look_mod == 'look_2_4_mod')
+          font_size_mod = 'font_size_2_mod'
+        
+        if (look_mod == 'look_1_1_mod')
+          font_size_mod = 'font_size_1L_mod'
+        
+        if (item.accent_look)
+          font_size_mod = 'font_size_a_1_mod'
+        
         //------------------------------------------------------------ mods###
 
 
