@@ -26,7 +26,7 @@ mixin item_content(params)
         //- title
         - link = params.item.link && params.item.link.text ? params.item.link.text : '#';
         h3.grid_item__title
-          a.grid_item__link(class= `${params.item.accent_look ? 'js-grid_item__title_link' : ''}`)!= params.item.title
+          a.grid_item__link(class= `${params.item.accent_look ? 'js-grid_item__title_link' : ''}` href='#')!= params.item.title
         
         //- description
         .grid_item__descr= params.item.descr

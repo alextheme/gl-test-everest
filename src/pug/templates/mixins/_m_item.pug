@@ -15,7 +15,7 @@ mixin item(params)
     ${img_mod}`)
     
     //- help block
-    .helper_block(class= `${params.item_resize.length >= 1 ? 'accent' : ''}`)= params.look_mod.slice(5, -4)
+    //- .helper_block(class= `${params.item_resize.indexOf('resize_min_to_row') >= 0 ? 'accent' : ''}`)= params.look_mod.slice(5, -4)
       .count= params.counter
       .resize_class= params.item_resize[0]
       .resize_class= params.item_resize[1]
