@@ -1,0 +1,50 @@
+mixin v2_grid_list(data)
+
+  ul.v2_grid_list
+    each item in data
+      - 
+        size = 'size_11_mod';
+        if (item.size) size = `size_${item.size}_mod`;
+
+        style = 'style_1_mod';
+        if (item.style) {
+          style = `style_${item.style}_mod`; 
+        } else if (size == 'size_11_mod') {
+          style = 'style_1_mod';
+        } else {
+          if (item.title)                           style = 'style_1_mod';
+          if (item.title && item.descr)             style = 'style_2_mod';
+          if (item.img && item.title)               style = 'style_3_mod';
+          if (item.img && item.title && item.descr) style = 'style_4_mod';
+        }
+          
+        
+
+        item_header_direction = 'item_h_col_mod';
+        if (!item.author) {
+          item_header_direction = 'item_h_row_mod';
+        } else if (size !== 'size_11_mod' && size !== 'size_12_mod') {
+          item_header_direction = 'item_h_row_mod';
+        }
+
+        if (size == 'size_21_mod' && (style == 'style_3_mod' || style == 'style_4_mod')
+        || (size == 'size_32_mod' && (style == 'style_3_mod' || style == 'style_4_mod'))) {
+          item_header_direction = 'item_h_col_mod';
+        }
+
+        video_button_mod = '';
+        if (item.link && item.link.video)
+          video_button_mod = 'video_mod';
+
+        tag_color = 'color_0_mod';
+        if (item.tag_color)
+          tag_color = `color_${item.tag_color}_mod`;
+
+      +v2_grid_item({
+        item, 
+        size, 
+        style,
+        tag_color,
+        item_header_direction, 
+        video_button_mod
+      })

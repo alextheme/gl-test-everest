@@ -1,0 +1,35 @@
+$width_item_grid: ($page_width - (2rem * 4)) / 5;
+$height_item_grid: 24rem;
+$gap_row: 2rem;
+$gap_col: 2rem;
+
+.v2_grid_list {
+  display: grid;
+  grid-auto-rows: $height_item_grid;
+  grid-gap: $gap_row $gap_col;
+
+  width: 100%;
+  justify-content: center;    
+
+  margin: 0 auto 6.4rem;
+
+  @include bp(1165px, min) {
+    grid-template-columns: repeat(5, $width_item_grid);
+  }
+
+  @include bp(1165px, 944px) {
+    grid-template-columns: repeat(4, $width_item_grid);
+  }
+
+  @include bp(945px, 709px) {
+    grid-template-columns: repeat(3, $width_item_grid);
+  }
+  
+  @include bp(710px, $point_6) {
+    grid-template-columns: repeat(2, $width_item_grid);
+  }
+  
+  @include bp($point_6 - 1) {
+    display: block;
+  }
+}

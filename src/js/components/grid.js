@@ -5,25 +5,43 @@ export default function grid(globalVars) {
 	 * @returns void
 	 */
 	const wrapWordsInBlocks = () => {
-		const $node = $('.js-grid_item__title_link');
-		if (!$node) return;
+		function validateText($node, text) {
+			if (!$node || !text) return;
 
-		const text = $node.html();
-		const arrText = text.split(' ');
+			let at = text.split(' ');
 
-		const clearSpan = word => word.replace('<span>', '').replace('</span>', '');
-		const wrapInDiv = (isAccent, word) => `<div class="word word--${isAccent ? 'accent_mod' : ''}">${clearSpan(word)}</div>`;
+			if (at.length === 5) {
+				$node.css('color', 'yellow');
+			} else if (at.length > 5) {
+				at.length = 5;
+				$node.css('color', 'yellow');
+			}
+		}
 
-		//
-		let accent = false;
-		const str = arrText.reduce((result, word) => {
-			accent = !accent ? word.indexOf('<span>') >= 0 : accent;
-			const currentData = result + wrapInDiv(accent, word);
-			accent = accent ? !(word.indexOf('</span>') >= 0) : accent;
-			return currentData;
-		}, '');
+		function wrapText($node, text) {
+			if (!$node || !text) return;
+			const arrText = text.split(' ');
 
-		$node.html(str);
+			const clearSpan = word => word.replace('<span>', '').replace('</span>', '');
+			const wrapInDiv = (isAccent, word) => `<div class="word word--${isAccent ? 'accent_mod' : ''}">${clearSpan(word)}</div>`;
+
+			//
+			let accent = false;
+			const str = arrText.reduce((result, word) => {
+				accent = !accent ? word.indexOf('<span>') >= 0 : accent;
+				const currentData = result + wrapInDiv(accent, word);
+				accent = accent ? !(word.indexOf('</span>') >= 0) : accent;
+				return currentData;
+			}, '');
+
+			$node.html(str);
+		}
+
+		const $nodeV1 = $('.js-grid_item__title_link');
+		wrapText($nodeV1, $nodeV1.html());
+
+		const $nodeV2 = $('.v2_grid_item--style_a1_mod .js-v2_grid_item__link_title');
+		wrapText($nodeV2, $nodeV2.html());
 	};
 
 	wrapWordsInBlocks();
@@ -32,18 +50,6 @@ export default function grid(globalVars) {
 	 * this function replaces classes for resizing blocks on screen resize
 	 */
 	const resizingBlocks = () => {
-		// 'resize_col_to_row': [14, 20, 30],
-		// 'resize_row_to_col': [16, 22, 25],
-		// 'resize_min_to_row': [24, 26],
-		// 'resize_min_to_col': [24, 26],
-		// 'resize_col_to_big': [30],
-
-		// const item_resize = Object.keys(resize_mods).filter(key => resize_mods[key].includes(number_item)) || null;
-
-		// mediaPoint1: 1024,
-		// mediaPoint2: 768,
-		// mediaPoint3: 480,
-		// mediaPoint4: 320,
 		const widthWindow = $(window).width();
 
 		// 1200px - 1024px

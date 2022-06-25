@@ -649,12 +649,6 @@
 
   .grid_item--look_col_2_mod & { @include text_overflow(14); }
   .grid_item--look_col_3_mod & { @include text_overflow(8); }
-  
-  .grid_item--look_row_2_mod.grid_item--resize_row_to_col & { -webkit-line-clamp: 14; }
-  .grid_item--look_row_3_mod.grid_item--resize_row_to_col & { -webkit-line-clamp: 9; }
-
-  // .grid_item--look_col_2_mod.grid_item--resize_col_to_row & { -webkit-line-clamp: 4; }
-  // .grid_item--look_col_3_mod.grid_item--resize_col_to_row & { -webkit-line-clamp: 3; }
 
   .grid_item--look_2_1_mod & { @include text_overflow(9); }
   .grid_item--look_2_2_mod & { @include text_overflow(14); }
@@ -671,10 +665,6 @@
   .grid_item--look_row_3_mod & { @include text_overflow(4); }
 
   .grid_item--look_col_3_mod & {  @include text_overflow(8); }
-  
-  .grid_item--look_row_3_mod.grid_item--resize_row_to_col & { -webkit-line-clamp: 9; }
-  
-  // .grid_item--look_col_3_mod.grid_item--resize_col_to_row & { -webkit-line-clamp: 2; }
 
   .grid_item--look_2_1_mod & { @include text_overflow(11); }
   .grid_item--look_2_3_mod & { @include text_overflow(9); }

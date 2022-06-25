@@ -1,0 +1,666 @@
+// ------------------------------------------mixins
+@mixin size_full {
+  width: 100%;
+  height: 100%;
+}
+// ------------------------------------------mixins###
+
+// ------------------------------------------item
+.v2_grid_item {
+  position: relative;
+
+  padding: 1.4rem;
+  
+  background: $item_grid_bg;
+
+  &.v2_grid_item--size_11_mod {
+    grid-row-end: span 1;
+    grid-column-end: span 1; 
+  }
+
+  &.v2_grid_item--size_21_mod {
+    grid-row-end: span 1;
+    grid-column-end: span 2; 
+  }
+
+  &.v2_grid_item--size_12_mod {
+    grid-row-end: span 2;
+    grid-column-end: span 1; 
+  }
+
+  &.v2_grid_item--size_22_mod {
+    grid-row-end: span 2;
+    grid-column-end: span 2; 
+  }
+
+  &.v2_grid_item--size_32_mod {
+    grid-row-end: span 2;
+    grid-column-end: span 3; 
+  }
+}
+
+.v2_grid_item_in {
+  overflow: hidden;
+
+  @include size_full;
+
+  .v2_grid_item--size_12_mod &.v2_grid_item--style_3_mod,
+  .v2_grid_item--size_12_mod &.v2_grid_item--style_4_mod {
+    @extend %global_flex_block_column_nowrap_flex-start;
+
+    padding-top: calc($height_item_grid + .6rem);
+  }
+
+  .v2_grid_item--size_21_mod &.v2_grid_item--style_3_mod,
+  .v2_grid_item--size_21_mod &.v2_grid_item--style_4_mod {
+    padding-left: calc(50% + $gap_col / 2);
+  }
+}
+// ------------------------------------------item###
+
+// ------------------------------------------picture
+.v2_grid_item__picture {
+  display: none;
+
+  .cover_img {
+    @extend %cover_img;
+  }
+
+  // column
+  .v2_grid_item--size_12_mod .v2_grid_item--style_3_mod &,
+  .v2_grid_item--size_12_mod .v2_grid_item--style_4_mod & {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    display: block;
+    width: 100%;
+    height: $height_item_grid;
+  }
+
+  // row
+  .v2_grid_item--size_21_mod .v2_grid_item--style_3_mod &,
+  .v2_grid_item--size_21_mod .v2_grid_item--style_4_mod & {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    display: block;
+    width: calc(50% - $gap_col / 2);
+    height: $height_item_grid;
+  }
+
+  // size 2x2
+  .v2_grid_item--size_22_mod .v2_grid_item--style_3_mod &,
+  .v2_grid_item--size_22_mod .v2_grid_item--style_4_mod & {
+    @extend %stretch;
+    
+    display: block;
+  }
+
+  // size 3x2
+  .v2_grid_item--size_32_mod .v2_grid_item--style_3_mod & {
+    @extend %stretch;
+    display: block;
+  }
+
+  .v2_grid_item--size_32_mod .v2_grid_item--style_4_mod & {
+    @extend %stretch;
+    display: block;
+  }
+
+  // style a1
+  .v2_grid_item--style_a1_mod & {
+    @extend %stretch;
+    
+    display: block;
+  }
+}
+// ------------------------------------------picture###
+
+// ------------------------------------------content
+.v2_grid_item__content {
+  position: relative;
+
+  // display: inline-flex;
+
+  overflow: hidden;
+
+  @include size_full;
+
+  .v2_grid_item--size_22_mod .v2_grid_item--style_3_mod &,
+  .v2_grid_item--size_22_mod .v2_grid_item--style_4_mod &,
+  .v2_grid_item--size_32_mod .v2_grid_item--style_3_mod &,
+  .v2_grid_item--size_32_mod .v2_grid_item--style_4_mod & {
+    display: inline-flex;
+  }
+}
+
+.v2_grid_item__content_in {
+  margin-top: auto;
+  margin-bottom: 3rem;
+
+  // style a1
+  .v2_grid_item--style_a1_mod & {
+    @extend %global_flex_block_column_wrap_flex-start_flex-end;
+
+    position: relative;
+
+    width: fit-content;
+    height: 100%;
+    margin-left: auto;
+    margin-bottom: 0;
+    
+    overflow: hidden;
+  }
+
+  .v2_grid_item--size_11_mod .v2_grid_item--style_a1_mod &,
+  .v2_grid_item--size_12_mod .v2_grid_item--style_a1_mod & {
+    margin: 0 auto;
+  }
+}
+// ------------------------------------------content###
+
+// ------------------------------------------item header
+.v2_grid_item__header {
+  margin-bottom: 1.2rem;
+
+  color: $color_text_light;
+
+  .v2_grid_item--item_h_col_mod & {
+    @extend %global_flex_block_column_wrap_flex-start;
+  }
+
+  .v2_grid_item--item_h_row_mod & {
+    @extend %global_flex_block_row_wrap_flex-start;
+  }
+
+  .v2_grid_item--size_22_mod .v2_grid_item--style_3_mod &,
+  .v2_grid_item--size_22_mod .v2_grid_item--style_4_mod &,
+  .v2_grid_item--size_32_mod .v2_grid_item--style_3_mod &,
+  .v2_grid_item--size_32_mod .v2_grid_item--style_4_mod & {
+    color: $white;
+  }
+}
+// ------------------------------------------item header###
+
+// ------------------------------------------tag
+.v2_grid_item__link_tag {
+  @include font_style(1.2rem, 500, 1.2rem);
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  .v2_grid_item--item_h_col_mod & {
+    margin-bottom: 1.4rem;
+  }
+
+  .v2_grid_item--color_0_mod & { color: $color_text_light }
+  .v2_grid_item--color_1_mod & { color: $t_clr1 }
+  .v2_grid_item--color_2_mod & { color: $t_clr2 }  
+  .v2_grid_item--color_3_mod & { color: $t_clr3 }
+  .v2_grid_item--color_4_mod & { color: $t_clr4 }
+  .v2_grid_item--color_5_mod & { color: $t_clr5 }
+  .v2_grid_item--color_6_mod & { color: $t_clr6 }
+  .v2_grid_item--color_7_mod & { color: $t_clr7 }
+  .v2_grid_item--color_8_mod & { color: $t_clr8 }
+
+  .v2_grid_item--size_22_mod .v2_grid_item--style_3_mod &,
+  .v2_grid_item--size_22_mod .v2_grid_item--style_4_mod &,
+  .v2_grid_item--size_32_mod .v2_grid_item--style_3_mod &,
+  .v2_grid_item--size_32_mod .v2_grid_item--style_4_mod & {
+    color: $white;
+  }
+
+  .v2_grid_item--size_32_mod .v2_grid_item--style_3_mod &,
+  .v2_grid_item--size_32_mod .v2_grid_item--style_4_mod & {
+    padding: .5rem 1rem;
+    background-color: $t_clr1;
+  }
+
+  // style a1
+  .v2_grid_item--style_a1_mod & {
+    margin-left: auto;
+
+    color: $white;
+    text-transform: uppercase;
+  }
+}
+
+.v2_grid_item__icon_tag_wrap {
+  display: block;
+  width: 7px;
+  height: 15px;
+  margin-left: auto;
+  color: $color_text_light;
+}
+// ------------------------------------------tag###
+
+// ------------------------------------------author
+.v2_grid_item__link_author {
+  @extend %transition_opacity;
+
+  color: inherit;
+  
+  @include font_style(1.2rem, 500, 1.4rem);
+
+  &:hover { opacity: .6 }
+
+  span { font-weight: 400 }
+
+  .v2_grid_item--item_h_row_mod & {
+    display: block;
+    margin-left: auto;
+  }
+
+  &:not(
+  .v2_grid_item--size_32_mod .v2_grid_item--style_3_mod &, 
+  .v2_grid_item--size_32_mod .v2_grid_item--style_4_mod &,
+  .v2_grid_item--item_h_row_mod &) {
+    width: min-content;
+  }
+
+  // style a1
+  .v2_grid_item--style_a1_mod & {
+    @extend %hor_centr;
+
+    position: absolute;
+    bottom: 0;
+
+    width: unset!important;
+    padding: 4px 8px;
+    margin-bottom: 4.6rem;
+
+    color: $white;
+    white-space: nowrap;
+    
+    border: 1px solid $white;
+    
+    span { display: none }
+  }
+
+  .v2_grid_item--size_12_mod .v2_grid_item--style_a1_mod &,  
+  .v2_grid_item--size_22_mod .v2_grid_item--style_a1_mod &,    
+  .v2_grid_item--size_32_mod .v2_grid_item--style_a1_mod & {    
+    margin-bottom: 6rem;
+  }
+}
+// ------------------------------------------author###
+
+// ------------------------------------------item title
+@mixin text_overflow($line_clamp) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line_clamp;
+  -webkit-box-orient: vertical;
+}
+
+.v2_grid_item__title {
+  .v2_grid_item--style_2_mod & {
+    margin-bottom: 1.4rem;
+  }
+
+  // style a1
+  .v2_grid_item--style_a1_mod & {    
+    margin: auto 0 8rem auto;
+  }
+
+  .v2_grid_item--size_12_mod .v2_grid_item--style_a1_mod &,  
+  .v2_grid_item--size_22_mod .v2_grid_item--style_a1_mod &,    
+  .v2_grid_item--size_32_mod .v2_grid_item--style_a1_mod & {    
+    margin-bottom: 10rem;
+  }
+
+  .v2_grid_item--size_22_mod .v2_grid_item--style_a1_mod &,    
+  .v2_grid_item--size_32_mod .v2_grid_item--style_a1_mod & {    
+    margin-right: 3rem;
+  }
+}
+
+.v2_grid_item__link_title {
+  @extend %transition_opacity;
+
+  color: $color_text_base;
+
+  &:hover {
+    opacity: .6;
+  }
+
+  // size 1x1
+  .v2_grid_item--size_11_mod .v2_grid_item--style_1_mod & {
+    @include text_overflow(6);
+    @include font_style(1.6rem, 500, 2rem);
+  }
+   
+  // column 1x2
+  .v2_grid_item--size_12_mod .v2_grid_item--style_1_mod & {
+    @include text_overflow(14);
+    @include font_style(2.2rem, 500, 2.7rem);
+  }
+
+  .v2_grid_item--size_12_mod .v2_grid_item--style_2_mod & {
+    @include text_overflow(10);
+    @include font_style(1.6rem, 500, 2rem);
+  }
+
+  .v2_grid_item--size_12_mod .v2_grid_item--style_3_mod & {
+    @include text_overflow(6);
+    @include font_style(1.6rem, 500, 2rem);
+  }
+
+  .v2_grid_item--size_12_mod .v2_grid_item--style_4_mod & {
+    @include text_overflow(6);
+    @include font_style(1.6rem, 500, 2rem);
+  }
+
+  // row 2x1
+  .v2_grid_item--size_21_mod .v2_grid_item--style_1_mod & {
+    @include text_overflow(6);
+    @include font_style(2.2rem, 500, 2.7rem);
+  }
+  
+  .v2_grid_item--size_21_mod .v2_grid_item--style_2_mod & {
+    @include text_overflow(4);
+    @include font_style(1.6rem, 500, 2rem);
+  }
+  
+  .v2_grid_item--size_21_mod .v2_grid_item--style_3_mod & {
+    @include text_overflow(6);
+    @include font_style(1.6rem, 500, 2rem);
+  }
+  
+  .v2_grid_item--size_21_mod .v2_grid_item--style_4_mod & {
+    @include text_overflow(6);
+    @include font_style(1.6rem, 500, 2rem);
+  }
+
+  // size 2x2
+  .v2_grid_item--size_22_mod .v2_grid_item--style_1_mod & {
+    @include text_overflow(10);
+    @include font_style(3.6rem, 500, 4rem);
+  }
+
+  .v2_grid_item--size_22_mod .v2_grid_item--style_2_mod & {
+    @include text_overflow(6);
+    @include font_style(3.6rem, 500, 4rem);
+  }
+
+  .v2_grid_item--size_22_mod .v2_grid_item--style_3_mod & {
+    color: $white;
+
+    @include text_overflow(15);
+    @include font_style(2.2rem, 500, 2.7rem);
+  }
+
+  .v2_grid_item--size_22_mod .v2_grid_item--style_4_mod & {
+    margin-bottom: 1.4rem;
+
+    color: $white;
+
+    @include text_overflow(10);
+    @include font_style(1.6rem, 500, 2rem);
+  }
+
+  // size 3x2
+  .v2_grid_item--size_32_mod .v2_grid_item--style_1_mod & {
+    @include text_overflow(9);
+    @include font_style(3.6rem, 500, 4rem);
+  }
+
+  .v2_grid_item--size_32_mod .v2_grid_item--style_2_mod & {
+    @include text_overflow(7);
+    @include font_style(3.6rem, 500, 4rem);
+  }
+
+  .v2_grid_item--size_32_mod .v2_grid_item--style_3_mod & {
+    color: $white;
+    text-transform: uppercase;
+
+    @include text_overflow(18);
+    @include font_style(1.6rem, 500, 2rem);
+  }
+
+  .v2_grid_item--size_32_mod .v2_grid_item--style_4_mod & {
+    margin-bottom: 1.4rem;
+
+    color: $white;
+    text-transform: uppercase;
+
+    @include text_overflow(10);
+    @include font_style(1.6rem, 500, 2rem);
+  }
+
+  // style a1
+  .v2_grid_item--style_a1_mod & {
+    @extend %global_flex_block_column_wrap_center_center;
+    
+    .word {
+      display: block;
+      width: max-content;
+      padding: 0 1rem;
+      margin-bottom: .2rem;
+
+      text-transform: uppercase;
+      color: $color_text_base;
+
+      background-color: $white;
+    }
+
+    .word--accent_mod { color: $color_accent }
+  }
+
+  .v2_grid_item--size_11_mod .v2_grid_item--style_a1_mod & .word {   
+    @include font_style(1.8rem, 500, 1.8rem);
+  }
+
+  .v2_grid_item--size_21_mod .v2_grid_item--style_a1_mod & .word {   
+    @include font_style(2.4rem, 500, 2.4rem);
+  }
+
+  .v2_grid_item--size_12_mod .v2_grid_item--style_a1_mod & .word {   
+    @include font_style(1.8rem, 500, 1.8rem);
+  }
+
+  .v2_grid_item--size_22_mod .v2_grid_item--style_a1_mod & .word {   
+    @include font_style(2.8rem, 500, 2.8rem);
+  }
+
+  .v2_grid_item--size_32_mod .v2_grid_item--style_a1_mod & .word {
+    @include font_style(3.2rem, 500, 3.2rem);
+  }
+}
+// ------------------------------------------item title###
+
+// ------------------------------------------description
+.v2_grid_item__descr {
+  @extend %transition_opacity;
+
+  display: none;
+  
+  color: $color_text_light;
+
+  &:hover {
+    opacity: .8;
+  }
+
+  @include font_style(1.2rem, 500, 1.8rem);
+
+  // column
+  .v2_grid_item--size_12_mod .v2_grid_item--style_2_mod & {
+    @include text_overflow(9);
+  }
+
+  // row
+  .v2_grid_item--size_21_mod .v2_grid_item--style_2_mod & {
+    @include text_overflow(4);
+  }  
+
+  // size 2x2
+  .v2_grid_item--size_22_mod .v2_grid_item--style_2_mod & {
+    @include text_overflow(9);
+  }
+
+  .v2_grid_item--size_22_mod .v2_grid_item--style_4_mod & {
+    color: $white;
+
+    @include text_overflow(10);
+  }
+
+  // size 3x2
+  .v2_grid_item--size_32_mod .v2_grid_item--style_2_mod & {
+    @include text_overflow(7);
+  }
+
+  .v2_grid_item--size_32_mod .v2_grid_item--style_4_mod & {
+    color: $white;
+    
+    @include text_overflow(10);
+  }
+}
+// ------------------------------------------description###
+
+// ------------------------------------------item date
+.v2_grid_item__date_wrap {
+  @extend %global_flex_block_row_wrap_flex-start;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+
+  width: 100%;
+
+  color: $color_text_light;
+
+  .v2_grid_item--size_22_mod .v2_grid_item--style_3_mod &,
+  .v2_grid_item--size_22_mod .v2_grid_item--style_4_mod &,
+  .v2_grid_item--size_32_mod .v2_grid_item--style_3_mod &,
+  .v2_grid_item--size_32_mod .v2_grid_item--style_4_mod & {
+    color: $white;
+  }
+
+  // style a1
+  .v2_grid_item--style_a1_mod & {
+    display: none;
+  }
+}
+
+.v2_grid_item__date {
+  color: inherit;
+}
+
+.v2_grid_item__time {
+  margin-left: auto;
+
+  color: inherit;
+}
+// ------------------------------------------item date###
+
+// ------------------------------------------button video
+.v2_grid_item__link_video {
+
+  .v2_grid_item--style_3_mod &, 
+  .v2_grid_item--style_4_mod & {
+    @extend %transition_all;	
+    @extend %global_flex_block_row_wrap_center_center;
+    @extend %stretch;
+
+    z-index: 10;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    color: $white;
+  
+    &:hover {    
+      color: $color_accent;
+    }
+
+    .v2_grid_item__icon_def_w {
+      display: block;
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+
+  .v2_grid_item--size_12_mod .v2_grid_item--style_3_mod &, 
+  .v2_grid_item--size_12_mod .v2_grid_item--style_4_mod & {
+    width: 100%;
+    height: $height_item_grid;
+  }
+
+  .v2_grid_item--size_21_mod .v2_grid_item--style_3_mod &, 
+  .v2_grid_item--size_21_mod .v2_grid_item--style_4_mod & {
+    width: calc(50% - $gap_col / 2);
+    height: 100%;
+  }
+
+
+  .v2_grid_item--style_a1_mod & {
+    @extend %transition_all;	
+  
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    
+    display: block;
+    width: 8rem;
+    height: 2em;
+    margin: 0 1.4rem 1rem 0;
+
+    line-height: 2rem;
+    color: $white;
+    stroke: $white;
+  
+    &:hover {    
+      color: $color_accent;
+      stroke: $color_accent;
+    }
+
+    .v2_grid_item__icon_a1_w {
+      position: absolute;
+      top: 0;
+      right: 0;
+      
+      display: block;
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .v2_grid_item__link_video_txt { display: block }
+  }
+
+  .v2_grid_item__link_video_txt { display: none }
+  .v2_grid_item__icon_a1_w { display: none }
+  .v2_grid_item__icon_def_w { display: none }
+}
+// ------------------------------------------button video###
+
+
+
+
+
+
+
+// ------------------------------------------ TODO: HELPER BLOCK
+li {
+  position: relative;
+}
+
+.help_block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 4px 8px;
+  font-size: 14px;
+  color: red;
+  border: 1px solid #ff4747;
+  background-color: #fcff47c4;
+}

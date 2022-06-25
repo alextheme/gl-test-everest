@@ -6,9 +6,13 @@
 
 	font-size: $font_size_base;
 
-	/* ----------- 0 - 480px ----------- */
-	@include bp($point_6 + 1) {
-		padding: 0 calc(var(--gl-indent) + 1px);
+	&.indent_mod {
+		padding: 0 var(--gl-indent);
+
+		/* ----------- 0 - 480px ----------- */
+		@include bp($point_6 + 1) {
+			padding: 0 calc(var(--gl-indent) / 2);
+		}
 	}
 }
 

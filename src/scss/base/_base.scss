@@ -9,7 +9,7 @@
 
 	--height-header: 9rem;
 	--height-footer: 40rem;
-	--gl-indent: .5rem;
+	--gl-indent: 1rem;
 }
 
 html {
@@ -64,7 +64,5 @@ a {
 	&:focus {
 		text-decoration: none;
 	}
-
 }
-
 //------------------------------------------------------------base styles###

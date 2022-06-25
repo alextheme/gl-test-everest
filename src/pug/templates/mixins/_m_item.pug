@@ -13,13 +13,6 @@ mixin item(params)
     grid_item--${params.font_size_mod}
     ${resize_mod}
     ${img_mod}`)
-    
-    //- help block
-    //- .helper_block(class= `${params.item_resize.indexOf('resize_min_to_row') >= 0 ? 'accent' : ''}`)= params.look_mod.slice(5, -4)
-      .count= params.counter
-      .resize_class= params.item_resize[0]
-      .resize_class= params.item_resize[1]
-      .resize_class= params.item_resize[2]
 
     //- image box
     +image_wrapper(params.item)

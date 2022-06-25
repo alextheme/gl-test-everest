@@ -1,0 +1,51 @@
+mixin v2_grid_item(params)
+  li.v2_grid_item(class= `v2_grid_item--${params.size}`)
+    .v2_grid_item_in(class= `${params.video_button_mod ? `v2_grid_item--${params.video_button_mod}` : ''}
+      v2_grid_item--${params.style}
+      v2_grid_item--${params.item_header_direction}
+      v2_grid_item--${params.tag_color}`)
+
+      //- .help_block
+        .line= params.style
+
+      //- video button    circle_btn buttonVideo grid_item__dbl_link--over_img_mod
+      if (params.item.link && params.item.link.video)
+        a.v2_grid_item__link_video.buttonVideo(href= params.item.link.video)
+          span.v2_grid_item__link_video_txt Смотреть
+          span.v2_grid_item__icon_a1_w
+            +icon('icon-video-small')
+          span.v2_grid_item__icon_def_w
+            +icon('icon-video')
+
+      //- image box
+      +picture({
+        img: params.item.img,
+        class: 'v2_grid_item__picture',
+      })
+      
+      //- content box
+      .v2_grid_item__content
+        .v2_grid_item__content_in
+      
+          //- item header
+          .v2_grid_item__header
+            a.v2_grid_item__link_tag(href='#')= params.item.tag
+
+            if (params.item.author)
+              - word_author = '<span>Автор:\u00A0</span>'
+              a.v2_grid_item__link_author(href= '#')!= word_author + params.item.author
+            else 
+              span.v2_grid_item__icon_tag_wrap
+                +icon('icon_tagging', 'icon_tag')
+            
+          //- title
+          h3.v2_grid_item__title
+            a.v2_grid_item__link_title(class= 'js-v2_grid_item__link_title' href= '#')!= params.item.title
+          
+          //- description
+          a.v2_grid_item__descr(href= '#')= params.item.descr
+        
+          //- date
+          .v2_grid_item__date_wrap
+            .v2_grid_item__date= params.item.date
+            .v2_grid_item__time= params.item.time
