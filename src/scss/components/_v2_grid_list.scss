@@ -21,11 +21,11 @@ $gap_col: 2rem;
     grid-template-columns: repeat(4, $width_item_grid);
   }
 
-  @include bp(945px, 709px) {
+  @include bp(945px, 719px) {
     grid-template-columns: repeat(3, $width_item_grid);
   }
   
-  @include bp(710px, $point_6) {
+  @include bp(720px, $point_6) {
     grid-template-columns: repeat(2, $width_item_grid);
   }
   

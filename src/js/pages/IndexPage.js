@@ -11,8 +11,8 @@ export default class IndexPage {
 
 	loadFunc() {
 		console.log('index page load');
-		grid(GLOBAL_VARS);
-		popup(GLOBAL_VARS);
+		grid();
+		popup();
 		header();
 	}
 

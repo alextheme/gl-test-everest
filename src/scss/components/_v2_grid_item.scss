@@ -37,6 +37,10 @@
     grid-row-end: span 2;
     grid-column-end: span 3; 
   }
+
+  @include bp($point_6 - 1) {
+    margin-bottom: 1.2rem;
+  }
 }
 
 .v2_grid_item_in {
