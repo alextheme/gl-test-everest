@@ -18,11 +18,12 @@ mixin v2_grid_item(params)
             +icon('icon-video')
 
       //- image box
-      +picture({
-        img: params.item.img,
-        class: 'v2_grid_item__picture',
-      })
-      
+      if (params.item.img)
+        +picture({
+          img: params.item.img,
+          class: 'v2_grid_item__picture',
+        })
+
       //- content box
       .v2_grid_item__content
         .v2_grid_item__content_in
@@ -32,8 +33,9 @@ mixin v2_grid_item(params)
             a.v2_grid_item__link_tag(href='#')= params.item.tag
 
             if (params.item.author)
-              - word_author = '<span>Автор:\u00A0</span>'
-              a.v2_grid_item__link_author(href= '#')!= word_author + params.item.author
+              a.v2_grid_item__link_author(href= '#')
+                span Автор:&nbsp;
+                = params.item.author
             else 
               span.v2_grid_item__icon_tag_wrap
                 +icon('icon_tagging', 'icon_tag')
@@ -41,6 +43,7 @@ mixin v2_grid_item(params)
           //- title
           h3.v2_grid_item__title
             a.v2_grid_item__link_title(class= 'js-v2_grid_item__link_title' href= '#')!= params.item.title
+            a.v2_grid_item__link_titled_author(href= '#')!= params.item.author
           
           //- description
           a.v2_grid_item__descr(href= '#')= params.item.descr

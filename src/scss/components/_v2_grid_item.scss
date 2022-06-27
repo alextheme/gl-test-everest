@@ -187,6 +187,11 @@
   .v2_grid_item--size_32_mod .v2_grid_item--style_4_mod & {
     color: $white;
   }
+
+  // style a1
+  .v2_grid_item--style_a1_mod & {
+   margin-bottom: 0;
+  }
 }
 // ------------------------------------------item header###
 
@@ -228,6 +233,7 @@
   // style a1
   .v2_grid_item--style_a1_mod & {
     margin-left: auto;
+    margin-bottom: 0;
 
     color: $white;
     text-transform: uppercase;
@@ -269,27 +275,7 @@
 
   // style a1
   .v2_grid_item--style_a1_mod & {
-    @extend %hor_centr;
-
-    position: absolute;
-    bottom: 0;
-
-    width: unset!important;
-    padding: 4px 8px;
-    margin-bottom: 4.6rem;
-
-    color: $white;
-    white-space: nowrap;
-    
-    border: 1px solid $white;
-    
-    span { display: none }
-  }
-
-  .v2_grid_item--size_12_mod .v2_grid_item--style_a1_mod &,  
-  .v2_grid_item--size_22_mod .v2_grid_item--style_a1_mod &,    
-  .v2_grid_item--size_32_mod .v2_grid_item--style_a1_mod & {    
-    margin-bottom: 6rem;
+    display: none;
   }
 }
 // ------------------------------------------author###
@@ -310,7 +296,7 @@
 
   // style a1
   .v2_grid_item--style_a1_mod & {    
-    margin: auto 0 8rem auto;
+    margin: auto 0;
   }
 
   .v2_grid_item--size_12_mod .v2_grid_item--style_a1_mod &,  
@@ -328,11 +314,12 @@
 .v2_grid_item__link_title {
   @extend %transition_opacity;
 
+  display: block;
+  margin-bottom: 1rem;
+
   color: $color_text_base;
 
-  &:hover {
-    opacity: .6;
-  }
+  &:hover { opacity: .6 }
 
   // size 1x1
   .v2_grid_item--size_11_mod .v2_grid_item--style_1_mod & {
@@ -439,21 +426,36 @@
   }
 
   // style a1
-  .v2_grid_item--style_a1_mod & {
-    @extend %global_flex_block_column_wrap_center_center;
-    
+  .v2_grid_item--style_a1_mod & {  
     .word {
-      display: block;
-      width: max-content;
+      display: none;
+      
+      width: min-content;
       padding: 0 1rem;
-      margin-bottom: .2rem;
-
+      margin: 0 auto .2rem;
+      
       text-transform: uppercase;
-      color: $color_text_base;
-
+      font-style: normal;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      
+      overflow: hidden;
       background-color: $white;
+
+      .v2_grid_item--size_11_mod &,
+      .v2_grid_item--size_21_mod & {
+        @include between(0, 5) { display: -webkit-box }
+      }
+
+      .v2_grid_item--size_12_mod &,
+      .v2_grid_item--size_22_mod &,
+      .v2_grid_item--size_32_mod & {
+        @include between(0, 8) { display: -webkit-box }
+      }
     }
 
+    span { color: $color_accent }
     .word--accent_mod { color: $color_accent }
   }
 
@@ -462,7 +464,7 @@
   }
 
   .v2_grid_item--size_21_mod .v2_grid_item--style_a1_mod & .word {   
-    @include font_style(2.4rem, 500, 2.4rem);
+    @include font_style(2rem, 500, 2rem);
   }
 
   .v2_grid_item--size_12_mod .v2_grid_item--style_a1_mod & .word {   
@@ -475,6 +477,28 @@
 
   .v2_grid_item--size_32_mod .v2_grid_item--style_a1_mod & .word {
     @include font_style(3.2rem, 500, 3.2rem);
+  }
+}
+
+.v2_grid_item__link_titled_author {
+  @extend %transition_color_background;
+
+  display: none;
+  width: max-content;
+  padding: 4px 8px;
+  margin: 0 auto;
+
+  color: $white;
+  white-space: nowrap;
+  border: 1px solid $white;
+
+  .v2_grid_item--style_a1_mod & {
+    display: block;
+  }
+
+  &:hover {
+    color: $color_text_base;
+    background-color: $white;
   }
 }
 // ------------------------------------------item title###

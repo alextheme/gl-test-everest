@@ -11,9 +11,8 @@ export default function grid() {
 		function wrapText($node, text) {
 			if (!$node || !text) return;
 			const arrText = text.split(' ');
-
 			const clearSpan = word => word.replace('<span>', '').replace('</span>', '');
-			const wrapInDiv = (isAccent, word) => `<div class="word word--${isAccent ? 'accent_mod' : ''}">${clearSpan(word)}</div>`;
+			const wrapInDiv = (isAccent, word) => `<i class="word${isAccent ? ' word--accent_mod' : ''}">${clearSpan(word)}</i>`;
 
 			//
 			let accent = false;
@@ -24,17 +23,22 @@ export default function grid() {
 				return currentData;
 			}, '');
 
-			$node.html(str);
+			// eslint-disable-next-line no-param-reassign
+			$node.innerHTML = str;
 		}
 
-		if ($('.js-grid_item__title_link')) {
-			const $nodeV1 = $('.js-grid_item__title_link');
-			wrapText($nodeV1, $nodeV1.html());
+		// for index.html
+		const $nodeV1 = Array.from(document.querySelectorAll('.js-grid_item__title_link'));
+		for (let i = 0; i < $nodeV1.length; i += 1) {
+			const text = $nodeV1[i].innerHTML.replace('-', '\u2212');
+			wrapText($nodeV1[i], text);
 		}
 
-		if ($('.v2_grid_item--style_a1_mod .js-v2_grid_item__link_title')) {
-			const $nodeV2 = $('.v2_grid_item--style_a1_mod .js-v2_grid_item__link_title');
-			wrapText($nodeV2, $nodeV2.html());
+		// for v2_index.html
+		const $nodeV2 = Array.from(document.querySelectorAll('.v2_grid_item--style_a1_mod .js-v2_grid_item__link_title'));
+		for (let i = 0; i < $nodeV2.length; i += 1) {
+			const text = $nodeV2[i].innerHTML.replace(/-/gi, '\u2212');
+			wrapText($nodeV2[i], text);
 		}
 	};
 
