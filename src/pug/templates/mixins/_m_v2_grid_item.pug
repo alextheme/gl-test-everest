@@ -11,11 +11,9 @@ mixin v2_grid_item(params)
       //- video button    circle_btn buttonVideo grid_item__dbl_link--over_img_mod
       if (params.item.link && params.item.link.video)
         a.v2_grid_item__link_video.buttonVideo(href= params.item.link.video)
-          span.v2_grid_item__link_video_txt Смотреть
-          span.v2_grid_item__icon_a1_w
-            +icon('icon-video-small')
-          span.v2_grid_item__icon_def_w
-            +icon('icon-video')
+          span.v2_grid_item__link_video_icon_wrap
+            +icon('btn_watch', 'icon_video_watch')
+            +icon('icon-video', 'icon_video_circle')
 
       //- image box
       if (params.item.img)

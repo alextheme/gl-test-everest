@@ -548,6 +548,14 @@
 // ------------------------------------------author###
 
 // ------------------------------------------item title
+@mixin text_overflow($line_clamp) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line_clamp;
+  -webkit-box-orient: vertical;
+}
+
 .grid_item__title {
   width: 100%;
   height: auto;
@@ -603,16 +611,19 @@
     text-transform: uppercase;
     color: $color_link_base;
   
-    .word {
-      width: fit-content;
-      padding: .4rem;
-      margin: 0 auto .24rem;
-  
+    .word {    
+      width: min-content;
+      padding: 0 1rem;
+      margin: 0 auto .2rem;
+      
+      text-transform: uppercase;
+      font-style: normal;
+      
       background-color: $white;
-    }
-  
-    .word--accent_mod  {
-      color: $color_accent;
+
+      @include text_overflow(1);
+     
+      &.word--accent_mod { color: $color_accent }
     }
   }
 
@@ -623,14 +634,6 @@
   .grid_item--look_row_3_mod & {
     margin-bottom: 2rem;
   }
-}
-
-@mixin text_overflow($line_clamp) {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: $line_clamp;
-  -webkit-box-orient: vertical;
 }
 
 .grid_item__link {
@@ -659,6 +662,12 @@
   .grid_item--look_3_2_mod & { @include text_overflow(12); }
   .grid_item--look_3_3_mod & { @include text_overflow(6); }
   .grid_item--look_3_4_mod & { @include text_overflow(10); }
+
+  .grid_item--look_accent_1_mod & {
+    display: block;
+    max-height: 8rem;
+    overflow: hidden;
+  }
 }
 
 .grid_item__descr {

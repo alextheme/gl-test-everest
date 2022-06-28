@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="75.6" height="18.6" viewBox="0 0 75.6 18.6">
+  <g id="Group_1" data-name="Group 1" transform="translate(-352 -182)">
+    <text id="Смотреть" transform="translate(352 195)" font-size="12" font-family="SegoeUI, Segoe UI" letter-spacing="-0.044em"><tspan x="0" y="0" stroke-width="0">Смотреть</tspan></text>
+    <path id="Rectangle" d="M0,0H5V5Z" transform="translate(417.5 187.964) rotate(45)"/>
+    <circle id="Oval" cx="8.5" cy="8.5" r="8.5" transform="translate(410 183)" fill="none" stroke-miterlimit="10" stroke-width="1.2"/>
+  </g>
+</svg>

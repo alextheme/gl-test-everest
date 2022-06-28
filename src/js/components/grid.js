@@ -12,7 +12,7 @@ export default function grid() {
 			if (!$node || !text) return;
 			const arrText = text.split(' ');
 			const clearSpan = word => word.replace('<span>', '').replace('</span>', '');
-			const wrapInDiv = (isAccent, word) => `<i class="word${isAccent ? ' word--accent_mod' : ''}">${clearSpan(word)}</i>`;
+			const wrapInDiv = (isAccent, word) => `<span class="word${isAccent ? ' word--accent_mod' : ''}">${clearSpan(word)}</span>`;
 
 			//
 			let accent = false;
@@ -32,13 +32,6 @@ export default function grid() {
 		for (let i = 0; i < $nodeV1.length; i += 1) {
 			const text = $nodeV1[i].innerHTML.replace('-', '\u2212');
 			wrapText($nodeV1[i], text);
-		}
-
-		// for v2_index.html
-		const $nodeV2 = Array.from(document.querySelectorAll('.v2_grid_item--style_a1_mod .js-v2_grid_item__link_title'));
-		for (let i = 0; i < $nodeV2.length; i += 1) {
-			const text = $nodeV2[i].innerHTML.replace(/-/gi, '\u2212');
-			wrapText($nodeV2[i], text);
 		}
 	};
 
