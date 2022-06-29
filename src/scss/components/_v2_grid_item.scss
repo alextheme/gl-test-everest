@@ -157,9 +157,14 @@
 
   // style a1
   .v2_grid_item--style_a1_mod & {
-    @extend %global_flex_block_column_wrap_flex-start_flex-end;
-
     position: relative;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    align-items: flex-end;
 
     width: fit-content;
     height: 100%;
@@ -207,25 +212,23 @@
 
 // ------------------------------------------tag
 .v2_grid_item__link_tag {
-  @include font_style(1.2rem, 500, 1.2rem);
-
-  &:hover {
-    text-decoration: underline;
-  }
+  @include font_style(1.2rem, 500, 1.4  rem);
+  
+  border-bottom: 1px solid transparent;
 
   .v2_grid_item--item_h_col_mod & {
     margin-bottom: 1.4rem;
   }
 
-  .v2_grid_item--color_0_mod & { color: $color_text_light }
-  .v2_grid_item--color_1_mod & { color: $t_clr1 }
-  .v2_grid_item--color_2_mod & { color: $t_clr2 }  
-  .v2_grid_item--color_3_mod & { color: $t_clr3 }
-  .v2_grid_item--color_4_mod & { color: $t_clr4 }
-  .v2_grid_item--color_5_mod & { color: $t_clr5 }
-  .v2_grid_item--color_6_mod & { color: $t_clr6 }
-  .v2_grid_item--color_7_mod & { color: $t_clr7 }
-  .v2_grid_item--color_8_mod & { color: $t_clr8 }
+  .v2_grid_item--color_0_mod & { color: $color_text_light; &:hover { border-bottom: 1px solid $color_text_light } }
+  .v2_grid_item--color_1_mod & { color: $t_clr1; &:hover { border-bottom: 1px solid $t_clr1 } }
+  .v2_grid_item--color_2_mod & { color: $t_clr2; &:hover { border-bottom: 1px solid $t_clr2 } }
+  .v2_grid_item--color_3_mod & { color: $t_clr3; &:hover { border-bottom: 1px solid $t_clr3 } }
+  .v2_grid_item--color_4_mod & { color: $t_clr4; &:hover { border-bottom: 1px solid $t_clr4 } }
+  .v2_grid_item--color_5_mod & { color: $t_clr5; &:hover { border-bottom: 1px solid $t_clr5 } }
+  .v2_grid_item--color_6_mod & { color: $t_clr6; &:hover { border-bottom: 1px solid $t_clr6 } }
+  .v2_grid_item--color_7_mod & { color: $t_clr7; &:hover { border-bottom: 1px solid $t_clr7 } }
+  .v2_grid_item--color_8_mod & { color: $t_clr8; &:hover { border-bottom: 1px solid $t_clr8 } }
 
   .v2_grid_item--size_22_mod .v2_grid_item--style_3_mod &,
   .v2_grid_item--size_22_mod .v2_grid_item--style_4_mod &,
@@ -241,8 +244,20 @@
   }
 
   // style a1
-  .v2_grid_item--style_banner_mod &,
   .v2_grid_item--style_a1_mod & {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+
+    color: $white;
+    text-transform: uppercase;
+
+    &:hover { border-bottom: 1px solid $white; } 
+  }
+
+  // style banner
+  .v2_grid_item--style_banner_mod & {
     margin-left: auto;
     margin-bottom: 0;
 
@@ -311,13 +326,40 @@
   }
 
   // style a1
-  .v2_grid_item--style_a1_mod & {    
-    margin: auto 0;
+  .v2_grid_item--style_a1_mod & {
+    text-align: center;
+    overflow: hidden;
+    color: $white;
   }
 
-  .v2_grid_item--size_22_mod .v2_grid_item--style_a1_mod &,    
-  .v2_grid_item--size_32_mod .v2_grid_item--style_a1_mod & {    
-    margin-right: 3rem;
+  .v2_grid_item--size_32_mod .v2_grid_item--style_a1_mod & {
+    width: 36rem;
+    height: 31.7rem;
+    margin-bottom: 2rem;
+  }
+
+  .v2_grid_item--size_22_mod .v2_grid_item--style_a1_mod & {    
+    width: 29rem;
+    height: 30.92rem;
+    margin-bottom: 2rem;
+  }
+
+  .v2_grid_item--size_12_mod .v2_grid_item--style_a1_mod & {    
+    width: 100%;
+    height: 29.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .v2_grid_item--size_21_mod .v2_grid_item--style_a1_mod & {    
+    width: 22rem;
+    height: 11.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .v2_grid_item--size_11_mod .v2_grid_item--style_a1_mod & {    
+    width: 100%;
+    height: 11rem;
+    margin-bottom: 2rem;
   }
 
   .v2_grid_item--style_banner_mod & {
@@ -439,34 +481,16 @@
   }
 
   // style a1
-  .v2_grid_item--style_a1_mod & { 
-    display: block;
-    padding: 0 1rem;
-    margin: 0 auto 1rem;
-
-    font-size: 2.4rem;
+  // TODO: size 22, 32 a1-style
+  .v2_grid_item--style_a1_mod & {
+    text-transform: uppercase;
+    white-space: break-spaces;
     
-    overflow: hidden;
+    background: $white;
 
-    i {    
-      display: block;
-      width: max-content;
-      padding: 0 1rem;
-      margin: 0 auto 0.2rem;
-      
-      font-style: normal;
-      text-transform: uppercase;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      
-      overflow: hidden;
-      background-color: #fff;
-
-      &.a { color: $color_accent }
-    }
+    strong { color: $color_accent }
   }
 
-  //
   .v2_grid_item--size_32_mod .v2_grid_item--style_a1_mod & {
     max-height: 37rem;
     i { max-width: 40rem }
