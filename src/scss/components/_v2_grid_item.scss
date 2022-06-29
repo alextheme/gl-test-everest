@@ -724,8 +724,8 @@
     @extend %transition_transform;
 
     .v2_grid_item--video_mod:not(.v2_grid_item--style_banner_mod):not(.v2_grid_item--style_a1_mod) & {
-      width: 5rem;
-      height: 5rem;
+      width: 4.4rem;
+      height: 4.4rem;
 
       .icon_video_watch { display: none }
     }
