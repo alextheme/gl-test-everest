@@ -1,9 +1,9 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 216 220" style="enable-background:new 0 0 216 220;" xml:space="preserve">
+	 viewBox="0 0 44 44" style="enable-background:new 0 0 44 44;" xml:space="preserve">
 <g id="icon-video" transform="translate(21 19)">
 	<g transform="matrix(1, 0, 0, 1, -21, -19)">
-		<ellipse id="Oval_Copy-2" class="st0" cx="108" cy="108" rx="22" ry="21.5"/>
+		<ellipse id="Oval_Copy-2" cx="22" cy="22" rx="22" ry="21.5"/>
 	</g>
-	<path id="Rectangle_Copy" fill="#19202C" d="M84.65,82.28l7.07,7.07l-6.36,6.36L84.65,82.28z"/>
+	<path id="Rectangle_Copy" fill="#19202C" d="M-1.35-3.72l7.07,7.07l-6.36,6.36L-1.35-3.72z"/>
 </g>
 </svg>
