@@ -5,6 +5,7 @@ export default function grid() {
 	/**
 	 * this functions replaces classes for resizing blocks on screen resize
 	 */
+	let str = `hello - "section.'section'.component_name" ${2 ** 3}`;
 	let reducedWidth1 = false;
 	let reducedWidth2 = false;
 	const arrayNodes1 = Array.from($('.v2_grid_item')).filter($node => $($node).hasClass('v2_grid_item v2_grid_item--size_32_mod'));
