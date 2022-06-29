@@ -392,6 +392,8 @@
 
 // ------------------------------------------mark
 .grid_item__mark {
+  display: none;
+
   .grid_item--look_accent_1_mod & {
     @extend %title_font_1L;
     
@@ -399,6 +401,7 @@
     top: 0;
     right: 0;
     
+    display: block;
     text-transform: uppercase;
     color: $white;
   }
@@ -464,7 +467,7 @@
   @include hover_transition_opacity;
 
   .grid_item--item_header_row_mod & {
-    margin-right: 1rem;
+    margin-right: var(--gl-indent);
   }
 
   .grid_item--look_2_1_mod &,
@@ -698,8 +701,6 @@
 
 // ------------------------------------------item date
 .grid_item__date_wrap {
-  color: $color_text_light;
-
   .grid_item--look_1_1_mod & {  
     @include position_abs_bottom;
   
@@ -769,8 +770,14 @@
   }
 }
 
+.grid_item__date {
+  margin-right: var(--gl-indent);
+  color: $color_text_light;
+}
+
 .grid_item__time {
   margin-left: auto;
+  color: $color_text_light;
 }
 // ------------------------------------------item date###
 

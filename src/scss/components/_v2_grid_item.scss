@@ -212,9 +212,13 @@
 
 // ------------------------------------------tag
 .v2_grid_item__link_tag {
-  @include font_style(1.2rem, 500, 1.4  rem);
-  
+  @include font_style(1.2rem, 500, 1.4rem);
+
   border-bottom: 1px solid transparent;
+
+  .v2_grid_item--item_h_row_mod & {
+    margin-right: var(--gl-indent);
+  }
 
   .v2_grid_item--item_h_col_mod & {
     margin-bottom: 1.4rem;
@@ -642,6 +646,7 @@
 }
 
 .v2_grid_item__date {
+  margin-right: var(--gl-indent);
   color: inherit;
 }
 
@@ -719,8 +724,8 @@
     @extend %transition_transform;
 
     .v2_grid_item--video_mod:not(.v2_grid_item--style_banner_mod):not(.v2_grid_item--style_a1_mod) & {
-      width: 10rem;
-      height: 10rem;
+      width: 100%;
+      height: 100%;
 
       .icon_video_watch { display: none }
     }
