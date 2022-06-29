@@ -11,9 +11,7 @@ mixin item_content(params)
           span.grid_item__mark= params.item.mark
       
         //- item header
-        if params.item.accent_look
-          a.grid_item__author(href= '#')= params.item.author
-        else 
+        if !params.item.accent_look
           .grid_item__header
             a.grid_item__tag_link(href='#')= params.item.tag
 
@@ -26,8 +24,10 @@ mixin item_content(params)
         //- title
         - link = params.item.link && params.item.link.text ? params.item.link.text : '#';
         h3.grid_item__title
-          a.grid_item__link(class= `${params.item.accent_look ? 'js-grid_item__title_link' : ''}` href='#')!= params.item.title
-        
+          a.grid_item__link(href='#')!= params.item.title
+        if params.item.accent_look
+          a.grid_item__author(href= '#')= params.item.author
+
         //- description
         .grid_item__descr= params.item.descr
         

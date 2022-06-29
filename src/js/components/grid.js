@@ -3,41 +3,6 @@ import { GLOBAL_VARS } from '../utils/constants';
 
 export default function grid() {
 	/**
-	 * the function wraps each word of the text in a block.
-	 * Cleans up Html code (span) and instead sets the class "title_accent_word"
-	 * @returns void
-	 */
-	const wrapWordsInBlocks = () => {
-		function wrapText($node, text) {
-			if (!$node || !text) return;
-			const arrText = text.split(' ');
-			const clearSpan = word => word.replace('<span>', '').replace('</span>', '');
-			const wrapInDiv = (isAccent, word) => `<span class="word${isAccent ? ' word--accent_mod' : ''}">${clearSpan(word)}</span>`;
-
-			//
-			let accent = false;
-			const str = arrText.reduce((result, word) => {
-				accent = !accent ? word.indexOf('<span>') >= 0 : accent;
-				const currentData = result + wrapInDiv(accent, word);
-				accent = accent ? !(word.indexOf('</span>') >= 0) : accent;
-				return currentData;
-			}, '');
-
-			// eslint-disable-next-line no-param-reassign
-			$node.innerHTML = str;
-		}
-
-		// for index.html
-		const $nodeV1 = Array.from(document.querySelectorAll('.js-grid_item__title_link'));
-		for (let i = 0; i < $nodeV1.length; i += 1) {
-			const text = $nodeV1[i].innerHTML.replace('-', '\u2212');
-			wrapText($nodeV1[i], text);
-		}
-	};
-
-	wrapWordsInBlocks();
-
-	/**
 	 * this functions replaces classes for resizing blocks on screen resize
 	 */
 	let reducedWidth1 = false;

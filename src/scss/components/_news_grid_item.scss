@@ -384,14 +384,7 @@
   }
 
   .grid_item--look_accent_1_mod & {  
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 2.4rem;
-    justify-items: center;
-    align-items: flex-end;
-  
-    width: min-content;
-    height: 100%;
+    width: 64%;
     margin-left: auto;
   }
 }
@@ -518,10 +511,12 @@
 
 // ------------------------------------------author
 .grid_item__author {
+  @extend %transition_opacity;
+
   display: block;
 
-  &:hover {
-    text-decoration: underline;
+  &:hover:not(.grid_item--look_accent_1_mod &) {
+    opacity: .5;
   }
 
   .grid_item--item_header_row_mod & {
@@ -534,15 +529,21 @@
   }
 
   .grid_item--look_accent_1_mod & {
-    order: 1;
-  
-    width: max-content;
+    @extend %transition_all;
+
     padding: 0 1rem;
-  
+    margin: 0 auto 2px;
+
+    white-space: nowrap;
     line-height: 2.4rem;
     color: $white;
 
-    border: 1px solid $white;
+    outline: 1px solid $white;
+
+    &:hover {
+      color: $color_accent;
+      outline: 1px solid $color_accent;
+    }
   }
 }
 // ------------------------------------------author###
@@ -604,35 +605,23 @@
     margin-bottom: 3rem;
   }
 
-  .grid_item--look_accent_1_mod & {
-    margin-bottom: 1rem;
-    
-    text-align: center;
-    text-transform: uppercase;
-    color: $color_link_base;
-  
-    .word {    
-      width: min-content;
-      padding: 0 1rem;
-      margin: 0 auto .2rem;
-      
-      text-transform: uppercase;
-      font-style: normal;
-      
-      background-color: $white;
-
-      @include text_overflow(1);
-     
-      &.word--accent_mod { color: $color_accent }
-    }
-  }
-
   .grid_item--look_col_3_mod & {
     margin-bottom: 2rem;
   }
 
   .grid_item--look_row_3_mod & {
     margin-bottom: 2rem;
+  }
+
+  .grid_item--look_accent_1_mod & {
+    max-height: 10rem;
+    margin-bottom: 1.4rem;
+
+    line-height: 3.4rem;
+    text-align: center;
+    text-transform: uppercase;
+
+    overflow: hidden;
   }
 }
 
@@ -663,10 +652,12 @@
   .grid_item--look_3_3_mod & { @include text_overflow(6); }
   .grid_item--look_3_4_mod & { @include text_overflow(10); }
 
-  .grid_item--look_accent_1_mod & {
-    display: block;
-    max-height: 8rem;
-    overflow: hidden;
+  .grid_item--look_accent_1_mod & {   
+    white-space: break-spaces;
+    
+    background-color: $white;
+
+    strong { color: $color_accent }
   }
 }
 
